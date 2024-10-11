@@ -1,9 +1,9 @@
-import React from 'react'
-
-export default function index() {
+export function Footer() {
   return (
-    <div>
-      
-    </div>
+    <footer className="bg-background">
+      <p className="text-center text-muted-foreground">
+        &copy; {new Date().getFullYear()} Hospital Maracaí. Todos os direitos reservados.
+      </p>
+    </footer>
   )
 }
