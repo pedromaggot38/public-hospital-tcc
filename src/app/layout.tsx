@@ -16,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className="antialiased">
-        <Header />
-        {children}
+        <div className="md:px-20">
+          <Header />
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

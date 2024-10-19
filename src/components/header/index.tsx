@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 
@@ -29,39 +28,30 @@ const menuItems = [
 
 export function Header() {
   const [isSheetOpen, setSheetIsOpen] = useState(false);
-  const pathname = usePathname();
 
   const handleSheetLinkClick = () => {
     setSheetIsOpen(false);
   };
 
   return (
-    <header className="top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-        <Link
-          href="#"
-          className="flex items-center gap-2 text-lg font-semibold md:text-base"
-        >
-          <Image src="/logo.png" alt="Logo" width={32} height={32} />
-          <span className="sr-only">Logo</span>
-        </Link>
-        {menuItems.map((item) => {
-          const isActive =
-            (pathname === item.path) ||
-            (pathname.startsWith(item.path + '/') && item.path !== '/dashboard');
-
-          return (
+    <header className="flex items-center justify-between p-4 shadow-sm">
+      <div className="flex items-center gap-10">
+        <Image src="/logo.svg" alt="Logo"
+          width={180} height={80}
+        />
+        <ul className="md:flex gap-6 hidden">
+          {menuItems.map((item) => (
             <Link
               key={item.title}
               href={item.path}
-              className={`text-muted-foreground transition-colors hover:text-foreground ${isActive ? 'text-primary font-semibold' : ''}`}
+              className="font-bold text-muted-foreground hover:text-blue-700 cursor-pointer hover:scale-105 transition-all ease-in-out"
             >
               <span>{item.title}</span>
               <span className="sr-only">, {item.accessibility}</span>
             </Link>
-          );
-        })}
-      </nav>
+          ))}
+        </ul>
+      </div>
       <Sheet open={isSheetOpen} onOpenChange={setSheetIsOpen}>
         <SheetTrigger asChild>
           <Button
@@ -73,19 +63,24 @@ export function Header() {
             <span className="sr-only">Alternar menu de navegação</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left">
+        <SheetContent side="right">
+          <SheetHeader>
+            <SheetTitle></SheetTitle>
+          </SheetHeader>
           <nav className="grid gap-6 text-lg font-medium">
             <Link
               href="#"
               className="flex items-center gap-2 text-lg font-semibold"
             >
-              <Image src="/logo.png" alt="Logo" width={32} height={32} />
+              <Image src="/logoL.svg" alt="Logo"
+                width={30} height={30}
+              />
             </Link>
             {menuItems.map((item) => (
               <Link
                 key={item.title}
                 href={item.path}
-                className={`text-muted-foreground transition-colors hover:text-foreground ${pathname === item.path ? 'text-primary font-semibold' : ''}`}
+                className="text-muted-foreground transition-colors hover:text-blue-700"
                 onClick={handleSheetLinkClick}
               >
                 <span>{item.title}</span>
