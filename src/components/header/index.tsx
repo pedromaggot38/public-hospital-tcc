@@ -16,13 +16,23 @@ const menuItems = [
   },
   {
     title: "Sobre Nós",
-    path: "/aboutus",
+    path: "/about",
     accessibility: "Sobre Nós",
   },
   {
     title: "Artigos",
     path: "/articles",
     accessibility: "Artigos",
+  },
+  {
+    title: "Convênios",
+    path: "/convenios",
+    accessibility: "Convênios",
+  },
+  {
+    title: "Trabalhe Conosco",
+    path: "/joinus",
+    accessibility: "Trabalhe Conosco",
   },
 ];
 
