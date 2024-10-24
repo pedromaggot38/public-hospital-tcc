@@ -46,9 +46,14 @@ export function Header() {
   return (
     <header className="flex items-center justify-between p-4 shadow-sm">
       <div className="flex items-center gap-10">
-        <Image src="/logo.svg" alt="Logo"
-          width={180} height={80}
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={180} // Largura fixa
+          height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
+          style={{ objectFit: 'contain' }} // Ajusta a imagem para caber no espaço sem distorção
         />
+
         <ul className="md:flex gap-6 hidden">
           {menuItems.map((item) => (
             <Link
