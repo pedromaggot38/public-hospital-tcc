@@ -1,13 +1,15 @@
 import { db } from "@/lib/db";
+import { lastArticlesCount } from "@/lib/vars";
 
 export async function GET() {
     try {
-        const publishedArticles = await db.article.findMany({
+        const lastArticlesDB = await db.article.findMany({
             where: { published: true },
             orderBy: { createdAt: 'desc' },
+            take: lastArticlesCount,
         });
 
-        return new Response(JSON.stringify(publishedArticles), {
+        return new Response(JSON.stringify(lastArticlesDB), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',

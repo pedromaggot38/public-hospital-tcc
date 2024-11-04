@@ -28,7 +28,6 @@ export function DoctorList() {
                 setIsLoading(false);
             }
         };
-
         fetchDoctors();
     }, []);
 
@@ -46,7 +45,9 @@ export function DoctorList() {
                 <div>
                     {doctors.map((doctor) => (
                         <div key={doctor.id}>
-                            
+                            <div>
+                                {doctor.name}
+                            </div>
                         </div>
                     ))}
                 </div>

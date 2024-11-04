@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Article } from "@/schemas/article";
 import ArticleCard from "../articleCard";
 import { Skeleton } from "../ui/skeleton";
 import useIsMobile from "@/hooks/useIsMobile";
+import { Article } from "@/types/interfaces";
 
 export function LastArticles() {
     const [lastArticlesDB, setLastArticlesDB] = useState<Article[]>([]);
@@ -16,9 +16,9 @@ export function LastArticles() {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch('/api/articles');
+                const response = await fetch('/api/lastArticles');
                 if (!response.ok) {
-                    throw new Error("Failed to fetch articles");
+                    throw new Error("Failed to fetch last articles");
                 }
                 const articles = await response.json();
                 if (Array.isArray(articles)) {
@@ -27,7 +27,7 @@ export function LastArticles() {
                     throw new Error("Formato de dados inválido");
                 }
             } catch (error) {
-                console.error("Failed to fetch articles:", error);
+                console.error("Failed to fetch last articles:", error);
                 setError("Ocorreu um erro ao buscar as últimas notícias.");
             } finally {
                 setIsLoading(false);

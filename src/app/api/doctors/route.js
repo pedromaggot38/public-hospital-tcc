@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
     try {
         const doctors = await db.doctor.findMany({
-            where: { visibility: true }, // Filtrando apenas médicos visíveis
+            where: { visibility: true },
             include: {
                 schedules: {
                     select: {
