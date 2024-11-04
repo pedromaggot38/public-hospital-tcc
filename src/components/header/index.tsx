@@ -25,9 +25,9 @@ const menuItems = [
     accessibility: "Artigos",
   },
   {
-    title: "Convênios",
-    path: "/convenios",
-    accessibility: "Convênios",
+    title: "Médicos",
+    path: "/doctors",
+    accessibility: "Médicos",
   },
   {
     title: "Trabalhe Conosco",

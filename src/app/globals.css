@@ -6,6 +6,20 @@ body {
   font-family: Arial, sans-serif;
 }
 
+body {
+  background-color: #ecf2f7; /* Azul claro suave */
+  color: #333; /* Cor do texto padrão */
+  font-family: 'Arial', sans-serif; /* Fonte legível */
+}
+
+h1, h2, h3 {
+  color: #004080; /* Azul escuro para cabeçalhos */
+}
+
+a {
+  color: #0066cc; /* Azul para links */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

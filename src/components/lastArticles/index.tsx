@@ -58,7 +58,7 @@ export function LastArticles() {
                         <ArticleCard
                             key={article.slug}
                             title={article.title}
-                            content={article.content}
+                            subtitle={article.subtitle}
                             imageUrl={article.imageUrl || '/news-placeholder.png'}
                             createdAt={new Date(article.createdAt).toISOString()}
                             slug={article.slug}
