@@ -2,6 +2,8 @@
 import { Doctor } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { columns } from "./columns";
+import { DataTable } from './data-table'
 
 export function DoctorList() {
     const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -34,22 +36,55 @@ export function DoctorList() {
     return (
         <div>
             {isLoading ? (
-                <div className="space-y-2">
-                    {Array.from({ length: 4 }).map((_, index) => (
-                        <Skeleton key={index} className="h-56 w-full rounded-lg" />
-                    ))}
+                <div className="overflow-x-auto">
+                    <table className="min-w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="p-4 text-left text-sm font-medium text-gray-700 border-b border-gray-300">
+                                    <Skeleton className="h-4 w-1/4" />
+                                </th>
+                                <th className="p-4 text-left text-sm font-medium text-gray-700 border-b border-gray-300">
+                                    <Skeleton className="h-4 w-1/4" />
+                                </th>
+                                <th className="p-4 text-left text-sm font-medium text-gray-700 border-b border-gray-300">
+                                    <Skeleton className="h-4 w-1/4" />
+                                </th>
+                                <th className="p-4 text-left text-sm font-medium text-gray-700 border-b border-gray-300">
+                                    <Skeleton className="h-4 w-1/4" />
+                                </th>
+                                <th className="p-4 text-left text-sm font-medium text-gray-700 border-b border-gray-300">
+                                    <Skeleton className="h-4 w-1/4" />
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {Array.from({ length: 6 }).map((_, index) => (
+                                <tr key={index} className="border-b border-gray-300">
+                                    <td className="p-4">
+                                        <Skeleton className="h-4 w-full" />
+                                    </td>
+                                    <td className="p-4">
+                                        <Skeleton className="h-4 w-full" />
+                                    </td>
+                                    <td className="p-4">
+                                        <Skeleton className="h-4 w-full" />
+                                    </td>
+                                    <td className="p-4">
+                                        <Skeleton className="h-4 w-full" />
+                                    </td>
+                                    <td className="p-4">
+                                        <Skeleton className="h-4 w-full" />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             ) : error ? (
                 <p>{error}</p>
             ) : (
-                <div>
-                    {doctors.map((doctor) => (
-                        <div key={doctor.id}>
-                            <div>
-                                {doctor.name}
-                            </div>
-                        </div>
-                    ))}
+                <div className="container mx-auto py-10">
+                    <DataTable columns={columns} data={doctors} />
                 </div>
             )}
         </div>

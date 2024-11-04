@@ -1,14 +1,16 @@
-export interface Doctor {
+import { States, WeekDay } from "@prisma/client";
+
+export type Doctor = {
     id: number;
     name: string;
     specialty: string;
-    state: string;
+    state: States;
     crm: string;
-    phone?: string;
-    email?: string;
-    visibility: boolean;
-    schedules: Schedule[];
-    createdAt: string;
+    schedules: {
+        dayOfWeek: WeekDay;
+        startTime: Date;
+        endTime: Date;
+    }[];
 }
 
 export interface Schedule {
