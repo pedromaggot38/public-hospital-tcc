@@ -20,9 +20,9 @@ const menuItems = [
     accessibility: "Sobre Nós",
   },
   {
-    title: "Artigos",
+    title: "Notícias",
     path: "/articles",
-    accessibility: "Artigos",
+    accessibility: "Notícias",
   },
   {
     title: "Médicos",
