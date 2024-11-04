@@ -1,62 +1,59 @@
-import { db } from "@/lib/db";
-import { lastArticlesCount } from "@/lib/vars";
-import Image from "next/image";
-import Link from "next/link"; 
-import { Skeleton } from "@/components/ui/skeleton"; 
+'use client';
 
-export async function LastArticles() {
-    const lastArticlesDB = await db.article.findMany({
-        where: { published: true },
-        orderBy: { createdAt: 'desc' },
-        take: lastArticlesCount,
-    });
+import { useEffect, useState } from "react";
+import { Article } from "@/schemas/article";
+import ArticleCard from "../articleCard";
 
-    const isLoading = lastArticlesDB.length === 0;
-    const maxSubtitleLength = 50;
+export function LastArticles() {
+    const [lastArticlesDB, setLastArticlesDB] = useState<Article[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const response = await fetch('/api/articles');
+                if (!response.ok) {
+                    throw new Error("Failed to fetch articles");
+                }
+                const articles = await response.json();
+                if (Array.isArray(articles)) {
+                    setLastArticlesDB(articles);
+                } else {
+                    throw new Error("Formato de dados inválido");
+                }
+            } catch (error) {
+                console.error("Failed to fetch articles:", error);
+                setError("Ocorreu um erro ao buscar as últimas notícias.");
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchArticles();
+    }, []);
 
     return (
-        <div className="w-[25%] p-4 sticky top-0 h-screen shadow-lg">
-            <h2 className="text-xl font-bold mb-4">Últimas Notícias</h2>
-            <div className="space-y-4">
-                {isLoading ? (
-                    Array.from({ length: lastArticlesCount }).map((_, index) => (
-                        <div key={index} className="bg-white p-4 rounded shadow flex space-x-4">
-                            <Skeleton className="w-1/3 h-20" />
-                            <div className="w-2/3 space-y-2">
-                                <Skeleton className="h-4 w-3/4" />
-                                <Skeleton className="h-3 w-1/2" />
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    lastArticlesDB.map((article) => (
-                        <div key={article.id} className="bg-white p-4 rounded shadow flex space-x-4">
-                            <Link href={`/articles/${article.slug}`} className="flex w-full">
-                                <div className="w-1/3">
-                                    <Image
-                                        src={article.imageUrl || '/placeholder.png'}
-                                        alt={article.imageDescription || article.title}
-                                        width={80}
-                                        height={80}
-                                        className="object-cover rounded"
-                                        style={{ width: "80px", height: "80px" }}
-                                    />
-                                </div>
-                                <div className="w-2/3">
-                                    <h3 className="font-semibold">{article.title}</h3>
-                                    {article.subtitle && (
-                                        <p className="text-gray-600 text-sm">
-                                            {article.subtitle.length > maxSubtitleLength
-                                                ? `${article.subtitle.slice(0, maxSubtitleLength)}...`
-                                                : article.subtitle}
-                                        </p>
-                                    )}
-                                </div>
-                            </Link>
-                        </div>
-                    ))
-                )}
-            </div>
+        <div className="">
+            <h2 className="text-2xl font-bold">Últimas Notícias</h2>
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : error ? (
+                <p>{error}</p>
+            ) : (
+                <div className="flex flex-col gap-4">
+                    {lastArticlesDB.map((article) => (
+                    <ArticleCard
+                        key={article.slug}
+                        title={article.title}
+                        content={article.content}
+                        imageUrl={article.imageUrl || '/news-placeholder.png'}
+                        createdAt={new Date(article.createdAt).toISOString()}
+                        slug={article.slug}
+                    />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
