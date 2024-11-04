@@ -1,9 +1,15 @@
 'use client'
 
+import useIsMobile from "@/hooks/useIsMobile";
 import { useState } from "react";
 
 const ImageGallery = () => {
     const [expandedIndex, setExpandedIndex] = useState(0);
+    const isMobile = useIsMobile();
+    
+    if (isMobile) {
+        return null;
+    }
     const panels = [
         { image: '/ImageGallery/image0.jpg' },
         { image: '/ImageGallery/image1.jpg' },
@@ -13,6 +19,7 @@ const ImageGallery = () => {
         { image: '/ImageGallery/image5.jpg' },
         { image: '/ImageGallery/image6.jpg' },
     ]
+
 
 
     const handleClick = (index: number) => {

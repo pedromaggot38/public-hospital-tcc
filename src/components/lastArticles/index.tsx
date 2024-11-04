@@ -15,7 +15,7 @@ export async function LastArticles() {
     const maxSubtitleLength = 50;
 
     return (
-        <div className="w-[30%] p-4 sticky top-0 h-screen shadow-lg">
+        <div className="w-[25%] p-4 sticky top-0 h-screen shadow-lg">
             <h2 className="text-xl font-bold mb-4">Últimas Notícias</h2>
             <div className="space-y-4">
                 {isLoading ? (
@@ -39,6 +39,7 @@ export async function LastArticles() {
                                         width={80}
                                         height={80}
                                         className="object-cover rounded"
+                                        style={{ width: "80px", height: "80px" }}
                                     />
                                 </div>
                                 <div className="w-2/3">
