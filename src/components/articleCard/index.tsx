@@ -1,4 +1,5 @@
 import DOMPurify from 'dompurify';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -20,10 +21,12 @@ const ArticleCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, create
     return (
         <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
             <Link href={`/articles/${slug}`}>
-                <img
+                <Image
                     alt={title}
                     src={imageUrl || '/news-placeholder.png'}
                     className="h-56 w-full object-cover"
+                    width={500}
+                    height={300}
                 />
                 <div className="bg-white p-4 sm:p-6">
                     <time dateTime={createdAt} className="block text-xs text-gray-500">

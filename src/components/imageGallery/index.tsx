@@ -1,6 +1,7 @@
 'use client'
 
 import useIsMobile from "@/hooks/useIsMobile";
+import Image from "next/image";
 import { useState } from "react";
 
 const ImageGallery = () => {
@@ -33,11 +34,18 @@ const ImageGallery = () => {
                             key={index}
                             onClick={() => handleClick(index)}
                             className={`          
-                                flex-shrink-0 h-full rounded-2xl bg-black cursor-pointer transition-all duration-500 ease-in-out ${expandedIndex === index ?
-                                    "w-[60%]" : "w-[10%] overflow-hidden"}
-                                `}
+                                flex-shrink-0 rounded-2xl bg-black cursor-pointer transition-all duration-500 ease-in-out ${expandedIndex === index ? "w-[60%]" : "w-[10%] overflow-hidden"}
+                                h-full
+                                relative
+                            `}
                         >
-                            <img src={panel.image} className="w-full h-full object-cover object-top" alt="" />
+                            <Image
+                                src={panel.image}
+                                alt={`Image ${index + 1}`}
+                                layout="fill"
+                                objectFit="cover"
+                                className="rounded-2xl"
+                            />
                         </div>
                     ))
                 }
