@@ -3,12 +3,16 @@
 import { useEffect, useState } from "react";
 import { Article } from "@/schemas/article";
 import ArticleCard from "../articleCard";
+import { Skeleton } from "../ui/skeleton";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export function LastArticles() {
     const [lastArticlesDB, setLastArticlesDB] = useState<Article[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const isMobile = useIsMobile();
+    
     useEffect(() => {
         const fetchArticles = async () => {
             try {
@@ -33,24 +37,32 @@ export function LastArticles() {
         fetchArticles();
     }, []);
 
+    if (isMobile) {
+        return null;
+    }
+
     return (
-        <div className="">
+        <div className="p-4">
             <h2 className="text-2xl font-bold">Últimas Notícias</h2>
             {isLoading ? (
-                <p>Loading...</p>
+                <div className="space-y-2">
+                {Array.from({ length: 4 }).map((_, index) => (
+                    <Skeleton key={index} className="h-56 w-full rounded-lg" />
+                ))}
+            </div>
             ) : error ? (
                 <p>{error}</p>
             ) : (
                 <div className="flex flex-col gap-4">
                     {lastArticlesDB.map((article) => (
-                    <ArticleCard
-                        key={article.slug}
-                        title={article.title}
-                        content={article.content}
-                        imageUrl={article.imageUrl || '/news-placeholder.png'}
-                        createdAt={new Date(article.createdAt).toISOString()}
-                        slug={article.slug}
-                    />
+                        <ArticleCard
+                            key={article.slug}
+                            title={article.title}
+                            content={article.content}
+                            imageUrl={article.imageUrl || '/news-placeholder.png'}
+                            createdAt={new Date(article.createdAt).toISOString()}
+                            slug={article.slug}
+                        />
                     ))}
                 </div>
             )}

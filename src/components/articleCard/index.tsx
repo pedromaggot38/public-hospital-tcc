@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import React from 'react';
 
 interface ArticleProps {
@@ -32,9 +33,12 @@ const ArticleCard: React.FC<ArticleProps> = ({ title, content, imageUrl, created
                     <h3 className="mt-0.5 text-lg text-gray-900">{title}</h3>
                 </a>
 
-                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                    {content ? content : 'Sem conteúdo disponível.'} {/* Verificação de null */}
-                </p>
+                <p
+                    className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500"
+                    dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(content || 'Sem conteúdo disponível.')
+                    }}
+                />
             </div>
         </article>
     );

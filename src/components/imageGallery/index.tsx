@@ -20,8 +20,6 @@ const ImageGallery = () => {
         { image: '/ImageGallery/image6.jpg' },
     ]
 
-
-
     const handleClick = (index: number) => {
         setExpandedIndex(index);
     };

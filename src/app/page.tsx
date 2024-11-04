@@ -3,11 +3,11 @@ import Hero from "@/components/sections/hero/page";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen">
-      <div className="w-[75%] p-4">
+    <div className="flex mx-auto">
+      <div className="">
         <Hero />
       </div>
-      <div className="w-[25%]">
+      <div className="w-[20%]">
         <LastArticles />
       </div>
     </div>
