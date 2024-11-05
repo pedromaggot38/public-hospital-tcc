@@ -22,8 +22,12 @@ const getScheduleForDay = (schedules: Doctor['schedules'], day: WeekDay) => {
     if (schedule) {
         const startTime = new Date(schedule.startTime);
         const endTime = new Date(schedule.endTime);
-        const formattedStartTime = startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const formattedEndTime = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        startTime.setHours(startTime.getHours() + 3);
+        endTime.setHours(endTime.getHours() + 3);
+
+        const formattedStartTime = startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+        const formattedEndTime = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 
         return { time: `${formattedStartTime} - ${formattedEndTime}`, available: true };
     }
