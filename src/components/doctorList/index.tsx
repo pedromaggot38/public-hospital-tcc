@@ -83,7 +83,7 @@ export function DoctorList() {
             ) : error ? (
                 <p>{error}</p>
             ) : (
-                <div className="container mx-auto py-10">
+                <div className="container mx-auto">
                     <DataTable columns={columns} data={doctors} />
                 </div>
             )}

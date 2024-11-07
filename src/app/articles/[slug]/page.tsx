@@ -29,7 +29,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
 
   return (
     <div className='flex'>
-      <div className="w-[100%] mx-auto my-8 p-4">
+      <div className="w-[100%] mx-auto p-2">
         {article.imageUrl && (
           <div className="relative w-full h-60 overflow-hidden rounded-t-lg">
             <Image
@@ -54,7 +54,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
           </div>
         </div>
       </div>
-      <div className="w-[25%]">
+      <div className="hidden sm:block w-[25%]">
         <LastArticles />
       </div>
     </div>

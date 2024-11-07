@@ -18,7 +18,9 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="md:px-20">
           <Header />
-          {children}
+          <div className="my-2 sm:my-8">
+            {children}
+          </div>
         </div>
         <Footer />
       </body>

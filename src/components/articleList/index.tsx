@@ -3,10 +3,10 @@
 import { Article } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
-import ArticleCard from "../articleCard";
+import ArticleCard from "../articleListCard";
 
 export function ArticleList() {
-    const [articles, setArticles] = useState<Article[]>([]); // Corrigido para Article[]
+    const [articles, setArticles] = useState<Article[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -36,22 +36,21 @@ export function ArticleList() {
     return (
         <div>
             {isLoading ? (
-                <div className="grid grid-cols-6 space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 space-y-3">
                     {Array.from({ length: 20 }).map((_, index) => (
                         <div key={index} className="flex flex-col space-y-3">
-                            <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+                            <Skeleton className="h-[125px] w-full rounded-xl" />
                             <div className="space-y-2">
-                                <Skeleton className="h-4 w-[250px]" />
-                                <Skeleton className="h-4 w-[200px]" />
+                                <Skeleton className="h-4 w-full" />
+                                <Skeleton className="h-4 w-3/4" />
                             </div>
                         </div>
                     ))}
                 </div>
-
             ) : error ? (
                 <p>{error}</p>
             ) : (
-                <div className="grid grid-cols-6 flex-col gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {articles.map((article) => (
                         <ArticleCard
                             key={article.slug}
@@ -63,6 +62,7 @@ export function ArticleList() {
                         />
                     ))}
                 </div>
+
             )}
         </div>
     );

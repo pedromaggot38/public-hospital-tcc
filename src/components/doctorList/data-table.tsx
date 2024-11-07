@@ -46,8 +46,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center justify-between py-4">
-        <h1 className="text-3xl font-semibold mb-4">Médicos</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-semibold">Médicos</h1>
         <div className="flex items-center py-4">
           <Input
             placeholder="Procure por um médico..."
