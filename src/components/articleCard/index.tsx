@@ -32,7 +32,7 @@ const ArticleCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, create
                     <time dateTime={createdAt} className="block text-xs text-gray-500">
                         {formattedDate}
                     </time>
-                    <h3 className="mt-0.5 text-lg text-gray-900">{title}</h3>
+                    <h3 className="mt-0.5 text-lg  text-gray-900">{title}</h3>
                     <p
                         className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500"
                         dangerouslySetInnerHTML={{

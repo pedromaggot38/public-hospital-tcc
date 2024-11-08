@@ -38,7 +38,7 @@ export function Footer() {
 
               <li>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/ahbm.maracai/"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"

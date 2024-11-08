@@ -42,7 +42,7 @@ export function LastArticles() {
     }
 
     return (
-        <div className="p-4">
+        <div>
             <h2 className="text-2xl font-bold">Últimas Notícias</h2>
             {isLoading ? (
                 <div className="space-y-2">

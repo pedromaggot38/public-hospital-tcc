@@ -39,19 +39,19 @@ const ArticleListCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, cr
 
             <div className="flex flex-1 flex-col justify-between">
                 <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                    <a href="#">
-                        <h3 className="font-bold uppercase text-gray-900">
-                            {title}
-                        </h3>
-                    </a>
+                    <Link href={`/articles/${slug}`}
+                        className="font-bold uppercase text-gray-900">
+                        {title}
+                    </Link>
 
                     <p
-                        className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700"
+                        className={`mt-2 line-clamp-3 text-sm/relaxed ${subtitle ? 'text-gray-700' : 'text-gray-400'
+                            }`}
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(subtitle || 'Sem subtitulo disponível.')
                         }}
-                    >
-                    </p>
+                    ></p>
+
                 </div>
                 <Link href={`/articles/${slug}`}>
                     <span
