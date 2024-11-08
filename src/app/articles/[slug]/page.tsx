@@ -34,7 +34,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
     <div>
       <div className="flex gap-4 mb-2 justify-start place-items-center">
         <Link href="/articles">
-          <Button variant="outline" size="icon" className="h-7 w-7">
+          <Button variant="outline" size="icon" className="h-7 w-7 block sm:hidden">
             <ChevronLeft className="h-4 w-4" />
             <span className="sr-only">Voltar</span>
           </Button>

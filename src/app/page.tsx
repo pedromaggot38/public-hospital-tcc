@@ -4,7 +4,7 @@ import DoctorsSection from "@/components/sections/doctors/page";
 export default function Home() {
   return (
     <div className="flex mx-auto">
-      <div className="">
+      <div>
         <DoctorsSection />
       </div>
       <div className="w-[20%]">
