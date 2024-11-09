@@ -15,7 +15,7 @@ const menuItems = [
     accessibility: "Página Inicial",
   },
   {
-    title: "Sobre Nós",
+    title: "Sobre",
     path: "/about",
     accessibility: "Sobre Nós",
   },

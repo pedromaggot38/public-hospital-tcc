@@ -62,7 +62,6 @@ export function ArticleList() {
                         />
                     ))}
                 </div>
-
             )}
         </div>
     );

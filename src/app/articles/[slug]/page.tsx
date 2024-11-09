@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { LastArticles } from '@/components/lastArticles';
-import { ChevronLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import BreadCrumb from '@/components/breadcrump';
 
 interface Params {
   slug: string;
@@ -32,17 +30,13 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
 
   return (
     <div>
-      <div className="flex gap-4 mb-2 justify-start place-items-center">
-        <Link href="/articles">
-          <Button variant="outline" size="icon" className="h-7 w-7 block sm:hidden">
-            <ChevronLeft className="h-4 w-4" />
-            <span className="sr-only">Voltar</span>
-          </Button>
-        </Link>
-        <h1 className="text-3xl font-bold">Voltar</h1>
-      </div>
+      <BreadCrumb
+        items={[
+          { label: 'Notícias', href: '/articles' },
+        ]}
+      />
 
-      <div className='flex'>
+      <div className='flex gap-6'>
         <div className="w-[100%] mx-auto p-2">
           {article.imageUrl && (
             <div className="relative w-full h-60 overflow-hidden rounded-t-lg">
@@ -68,7 +62,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
             </div>
           </div>
         </div>
-        <div className="hidden sm:block w-[25%] pl-4">
+        <div className="hidden w-[20%] xl:block">
           <LastArticles />
         </div>
       </div>

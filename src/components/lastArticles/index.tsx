@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "../articleCard";
 import { Skeleton } from "../ui/skeleton";
-import useIsMobile from "@/hooks/useIsMobile";
 import { Article } from "@/types/interfaces";
 
 export function LastArticles() {
@@ -11,8 +10,7 @@ export function LastArticles() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const isMobile = useIsMobile();
-    
+   
     useEffect(() => {
         const fetchArticles = async () => {
             try {
@@ -37,12 +35,9 @@ export function LastArticles() {
         fetchArticles();
     }, []);
 
-    if (isMobile) {
-        return null;
-    }
 
     return (
-        <div>
+        <div className="hidden xl:block">
             <h2 className="text-2xl font-bold">Últimas Notícias</h2>
             {isLoading ? (
                 <div className="space-y-2">

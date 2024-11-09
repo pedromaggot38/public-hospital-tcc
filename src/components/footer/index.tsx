@@ -79,7 +79,7 @@ export function Footer() {
                 </li>
 
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                  <a href="/doctors" className="text-gray-700 transition hover:opacity-75"> Horários de Plantão </a>
                 </li>
               </ul>
             </div>
