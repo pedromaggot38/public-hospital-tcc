@@ -40,7 +40,7 @@ const ArticleListCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, cr
             <div className="flex flex-1 flex-col justify-between">
                 <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                     <Link href={`/articles/${slug}`}
-                        className="font-bold uppercase text-gray-900">
+                        className="font-bold text-gray-900 line-clamp-3">
                         {title}
                     </Link>
 
