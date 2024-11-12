@@ -10,7 +10,6 @@ export function LastArticles() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-   
     useEffect(() => {
         const fetchArticles = async () => {
             try {
@@ -38,7 +37,7 @@ export function LastArticles() {
 
     return (
         <div className="hidden xl:block">
-            <h2 className="text-2xl font-bold">Últimas Notícias</h2>
+            <h2 className="text-2xl font-bold">Últimas Publicações</h2>
             {isLoading ? (
                 <div className="space-y-2">
                 {Array.from({ length: 3 }).map((_, index) => (
