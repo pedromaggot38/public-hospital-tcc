@@ -41,8 +41,8 @@ export function LastArticles() {
             <h2 className="text-2xl font-bold">Últimas Notícias</h2>
             {isLoading ? (
                 <div className="space-y-2">
-                {Array.from({ length: 4 }).map((_, index) => (
-                    <Skeleton key={index} className="h-56 w-full rounded-lg" />
+                {Array.from({ length: 3 }).map((_, index) => (
+                    <Skeleton key={index} className="h-60 w-full rounded-lg" />
                 ))}
             </div>
             ) : error ? (
