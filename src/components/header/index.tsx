@@ -11,7 +11,7 @@ import { Separator } from "../ui/separator";
 
 const menuItems = [
   {
-    title: "Página Inicial",
+    title: "Início",
     path: "/",
     accessibility: "Página Inicial",
   },
@@ -43,10 +43,12 @@ export function Header() {
     <header className="flex items-center justify-between p-4 shadow-sm">
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-4">
-          <Image src="/logo.jpg" alt="Logo"
-            className="rounded-full"
-            width={60} height={60}
-          />
+          <Link href="/">
+            <Image src="/logo.jpg" alt="Logo"
+              className="rounded-full"
+              width={60} height={60}
+            />
+          </Link>
           <span className="font-bold text-primary">Hospital Maracaí</span>
           {/*
             <Image
@@ -89,10 +91,15 @@ export function Header() {
           </SheetHeader>
           <nav className="grid gap-6 text-lg font-medium">
             <div className="flex items-center gap-4">
-              <Image src="/logo.jpg" alt="Logo"
-                className="rounded-full"
-                width={50} height={50}
-              />
+              <Link
+                href="/"
+                onClick={handleSheetLinkClick}
+              >
+                <Image src="/logo.jpg" alt="Logo"
+                  className="rounded-full"
+                  width={50} height={50}
+                />
+              </Link>
               <span className="font-bold">Hospital Maracaí</span>
             </div>
             {menuItems.map((item) => (
