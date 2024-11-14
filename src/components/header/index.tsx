@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
+import { Separator } from "../ui/separator";
 
 
 const menuItems = [
@@ -29,11 +30,6 @@ const menuItems = [
     path: "/doctors",
     accessibility: "Médicos",
   },
-  {
-    title: "Trabalhe Conosco",
-    path: "/joinus",
-    accessibility: "Trabalhe Conosco",
-  },
 ];
 
 export function Header() {
@@ -46,15 +42,24 @@ export function Header() {
   return (
     <header className="flex items-center justify-between p-4 shadow-sm">
       <div className="flex items-center gap-10">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          width={180} // Largura fixa
-          height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
-          style={{ objectFit: 'contain' }} // Ajusta a imagem para caber no espaço sem distorção
-        />
-
-        <ul className="md:flex gap-6 hidden">
+        <div className="flex items-center gap-4">
+          <Image src="/logo.jpg" alt="Logo"
+            className="rounded-full"
+            width={60} height={60}
+          />
+          <span className="font-bold text-primary">Hospital Maracaí</span>
+          {/*
+            <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={180} // Largura fixa
+            height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
+            style={{ objectFit: 'contain' }} // Ajusta a imagem para caber no espaço sem distorção
+          />
+          */}
+        </div>
+        <ul className="lg:flex gap-6 hidden items-center">
+          <Separator orientation="vertical" className="h-10" />
           {menuItems.map((item) => (
             <Link
               key={item.title}
@@ -72,7 +77,7 @@ export function Header() {
           <Button
             variant="outline"
             size="icon"
-            className="shrink-0 md:hidden"
+            className="shrink-0 lg:hidden"
           >
             <Menu className="h-5 w-5" />
             <span className="sr-only">Alternar menu de navegação</span>
@@ -83,14 +88,13 @@ export function Header() {
             <SheetTitle></SheetTitle>
           </SheetHeader>
           <nav className="grid gap-6 text-lg font-medium">
-            <Link
-              href="#"
-              className="flex items-center gap-2 text-lg font-semibold"
-            >
-              <Image src="/logoL.svg" alt="Logo"
-                width={30} height={30}
+            <div className="flex items-center gap-4">
+              <Image src="/logo.jpg" alt="Logo"
+                className="rounded-full"
+                width={50} height={50}
               />
-            </Link>
+              <span className="font-bold">Hospital Maracaí</span>
+            </div>
             {menuItems.map((item) => (
               <Link
                 key={item.title}
