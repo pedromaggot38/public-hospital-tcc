@@ -36,7 +36,7 @@ export function LastArticles() {
 
 
     return (
-        <div className="hidden xl:block">
+        <div className="">
             <h2 className="text-2xl font-bold">Últimas Publicações</h2>
             {isLoading ? (
                 <div className="space-y-2">

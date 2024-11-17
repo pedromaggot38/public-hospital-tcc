@@ -66,6 +66,9 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
           <LastArticles />
         </div>
       </div>
+      <div className="mt-6 p-6 xl:hidden">
+        <LastArticles />
+      </div>
     </div>
   );
 };
