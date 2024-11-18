@@ -37,7 +37,7 @@ export function LastArticles() {
 
     return (
         <div className="">
-            <h2 className="text-2xl font-bold">Últimas Publicações</h2>
+            <h2 className="text-2xl font-bold">Notícias Recentes</h2>
             {isLoading ? (
                 <div className="space-y-2">
                 {Array.from({ length: 3 }).map((_, index) => (
