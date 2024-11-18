@@ -10,9 +10,14 @@ interface Params {
   slug: string;
 }
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+
 const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/slug?slug=${params.slug}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/slug?slug=${params.slug}`, {
+      next: { revalidate: 60 },
+    });
 
     if (!response.ok) {
       return notFound();
