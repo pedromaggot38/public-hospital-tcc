@@ -91,7 +91,7 @@ const LastArticlesCarousel: React.FC = () => {
     return (
         <div className='shadow-lg xl:hidden'>
             <h2 className="text-2xl font-bold text-gray-800">Notícias recentes</h2>
-            <div className=" overflow-y-scroll">
+            <div>
                 <Swiper
                     spaceBetween={10}
                     slidesPerView={1}
@@ -102,10 +102,10 @@ const LastArticlesCarousel: React.FC = () => {
                         320: {
                             slidesPerView: 1,
                         },
-                        480: {
+                        640: {
                             slidesPerView: 2,
                         },
-                        640: {
+                        800: {
                             slidesPerView: 3,
                         },
                     }}
