@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className="antialiased">
-        <div className="md:px-20">
+        <div className="xl:px-20 md:px-10 sm:px-2">
           <Header />
           <div className="my-2 sm:my-2 px-2">
             {children}

@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { LastArticles } from '@/components/lastArticles';
 import BreadCrumb from '@/components/breadcrump';
+import LastArticlesCarousel from '@/components/lastArticlesCarousel';
 
 interface Params {
   slug: string;
@@ -66,8 +67,8 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
           <LastArticles />
         </div>
       </div>
-      <div className="mt-6 p-6 xl:hidden">
-        <LastArticles />
+      <div className="p-2 xl:hidden">
+        <LastArticlesCarousel />
       </div>
     </div>
   );

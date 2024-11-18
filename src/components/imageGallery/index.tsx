@@ -25,8 +25,6 @@ const ImageGallery = () => {
 
     return (
         <div className="w-[100%] h-[70vh] overflow-hidden">
-
-            {/* Carrossel normal para telas grandes (lg e acima) */}
             <div className="hidden lg:flex w-full h-full justify-center items-center">
                 <div className="w-[80%] h-full flex items-center justify-center gap-2">
                     {
@@ -53,7 +51,6 @@ const ImageGallery = () => {
                 </div>
             </div>
 
-            {/* Swiper para telas menores que lg */}
             <div className="lg:hidden w-full h-full">
                 <Swiper
                     spaceBetween={10}

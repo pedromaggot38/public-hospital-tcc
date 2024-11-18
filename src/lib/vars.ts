@@ -1,1 +1,1 @@
-export const lastArticlesCount = 3;
+export const lastArticlesCount = 4;

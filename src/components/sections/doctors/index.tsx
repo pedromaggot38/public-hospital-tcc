@@ -4,7 +4,7 @@ import React from 'react'
 export default function DoctorsSection() {
     return (
         <section>
-            <div className="mx-auto max-w-screen-xl pb-6 sm:px-2 sm:py-2">
+            <div className="mx-auto max-w-screen-xl pt-2 xl:pt-0">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
                     <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
                         <Image
