@@ -15,6 +15,12 @@ export async function GET() {
         });
     } catch (error) {
         console.error("Erro ao buscar artigos:", error);
-        return new Response("Erro ao buscar artigos", { status: 500 });
+        
+        return new Response(JSON.stringify({ message: "Erro ao buscar artigos", error: process.env.NODE_ENV === 'development' ? error.message : undefined }), { 
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }

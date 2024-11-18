@@ -9,6 +9,10 @@ export async function GET() {
             take: lastArticlesCount,
         });
 
+        if (!Array.isArray(lastArticlesDB)) {
+            throw new Error("Formato de dados inválido");
+        }
+
         return new Response(JSON.stringify(lastArticlesDB), {
             status: 200,
             headers: {
@@ -17,6 +21,12 @@ export async function GET() {
         });
     } catch (error) {
         console.error("Erro ao buscar artigos:", error);
-        return new Response("Erro ao buscar artigos", { status: 500 });
+        const errorMessage = process.env.NODE_ENV === 'development' ? error.message : "Erro ao buscar artigos";
+        return new Response(JSON.stringify({ message: errorMessage }), { 
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }
