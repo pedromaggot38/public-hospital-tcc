@@ -1,7 +1,15 @@
+import { ArticleList } from "@/components/articleList"
+import BreadCrumb from "@/components/breadcrump"
+
 const Articles = () => {
     return (
         <div>
-            <h1>News</h1>
+            <BreadCrumb
+                items={[
+                    { label: 'Notícias', href: '/articles' },
+                ]}
+            />
+            <ArticleList />
         </div>
     )
 }

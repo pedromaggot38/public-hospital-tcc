@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, sans-serif;
+  background-color: #ecf2f7; /* Azul claro suave */
+  color: #252525; /* Cor do texto padrão */
+  font-family: 'Arial', sans-serif; /* Fonte legível */
 }
 
 @layer base {

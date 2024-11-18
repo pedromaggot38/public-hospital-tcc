@@ -1,7 +1,16 @@
+import BreadCrumb from "@/components/breadcrump"
+import ImageGallery from "@/components/imageGallery"
+
 const About = () => {
+
     return (
         <div>
-            <h1>Sobre</h1>
+            <BreadCrumb
+                items={[
+                    { label: 'Sobre', href: '/about' },
+                ]}
+            />
+            <ImageGallery />
         </div>
     )
 }

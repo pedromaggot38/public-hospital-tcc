@@ -1,16 +1,22 @@
 import { LastArticles } from "@/components/lastArticles";
-import Hero from "@/components/sections/hero/page";
+import LastArticlesCarousel from "@/components/lastArticlesCarousel";
+import DoctorsSection from "@/components/sections/doctors";
+import ServicesSection from "@/components/sections/services";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen">
-      {/* Seção principal da página inicial */}
-      <div className="w-[70%] p-4">
-        <Hero />
+    <div>
+      <LastArticlesCarousel />
+      <div className="flex mx-auto gap-6">
+        <div className="flex flex-col gap-2">
+          <DoctorsSection />
+          <ServicesSection />
+        </div>
+        <div className="w-[20%] hidden xl:block">
+          <LastArticles />
+        </div>
       </div>
-
-      {/* Seção fixa de últimas notícias */}
-      <LastArticles />
     </div>
+
   );
 }
