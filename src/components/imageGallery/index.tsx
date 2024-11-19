@@ -41,8 +41,8 @@ const ImageGallery = () => {
                                 <Image
                                     src={panel.image}
                                     alt={`Image ${index + 1}`}
-                                    layout="fill"
-                                    objectFit="cover"
+                                    fill
+                                    style={{ objectFit: "cover" }}
                                     className="rounded-2xl"
                                 />
                             </div>
@@ -70,8 +70,8 @@ const ImageGallery = () => {
                                 <Image
                                     src={panel.image}
                                     alt={`Image ${index + 1}`}
-                                    layout="fill"
-                                    objectFit="cover"
+                                    fill
+                                    style={{ objectFit: "cover" }}
                                     className="rounded-2xl"
                                 />
                             </div>
