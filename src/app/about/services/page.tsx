@@ -56,7 +56,7 @@ const ServicesAboutPage = () => {
       description:
         "Nosso laboratório está equipado para realizar uma ampla gama de exames laboratoriais. Oferecemos resultados precisos e rápidos, fundamentais para o diagnóstico e monitoramento de condições de saúde.",
       image:
-        "/ServicesAboutPage/Laboratoriais.jpg",
+        "/ServicesAboutPage/laboratoriais.jpg",
       reverse: false,
     },
     {
