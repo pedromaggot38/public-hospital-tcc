@@ -3,7 +3,6 @@ import { ServiceCard } from "./ServicesCard";
 import { services } from "./servicesData"
 
 export default function ServicesSection() {
-
     return (
         <section className="bg-gray-900 text-white rounded-lg">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">

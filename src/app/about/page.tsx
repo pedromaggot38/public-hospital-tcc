@@ -1,5 +1,6 @@
-import BreadCrumb from "@/components/breadcrump"
+import BreadCrumb from "@/components/breadcrumb"
 import ImageGallery from "@/components/imageGallery"
+import NavigationButtonsSection from "@/components/sections/navigationButtons"
 
 const About = () => {
 
@@ -10,7 +11,10 @@ const About = () => {
                     { label: 'Sobre', href: '/about' },
                 ]}
             />
-            <ImageGallery />
+            <div>
+                <NavigationButtonsSection />
+                <ImageGallery />
+            </div>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { LastArticles } from '@/components/lastArticles';
-import BreadCrumb from '@/components/breadcrump';
+import BreadCrumb from '@/components/breadcrumb';
 import LastArticlesCarousel from '@/components/lastArticlesCarousel';
 
 interface Params {

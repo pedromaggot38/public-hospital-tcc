@@ -1,4 +1,4 @@
-import BreadCrumb from "@/components/breadcrump"
+import BreadCrumb from "@/components/breadcrumb"
 import { DoctorList } from "@/components/doctorList"
 
 const Doctors = () => {

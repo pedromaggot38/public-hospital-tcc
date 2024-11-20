@@ -1,5 +1,5 @@
 import { ArticleList } from "@/components/articleList"
-import BreadCrumb from "@/components/breadcrump"
+import BreadCrumb from "@/components/breadcrumb"
 
 const Articles = () => {
     return (

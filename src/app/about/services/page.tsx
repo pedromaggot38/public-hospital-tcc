@@ -1,4 +1,4 @@
-import BreadCrumb from "@/components/breadcrump";
+import BreadCrumb from "@/components/breadcrumb";
 import Image from "next/image";
 import { medicalConsultations, medicalExams } from "./servicesData"
 
