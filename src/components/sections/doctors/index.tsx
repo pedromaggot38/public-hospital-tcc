@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 export default function DoctorsSection() {
@@ -20,17 +21,16 @@ export default function DoctorsSection() {
                         <h2 className="text-3xl font-bold sm:text-4xl">Horários de Plantão</h2>
 
                         <p className="mt-4 text-gray-600">
-                        No nosso hospital, disponibilizamos informações detalhadas sobre os horários de plantão dos nossos 
-                        médicos. Isso garante que você possa encontrar assistência médica sempre que precisar. Confira a programação dos 
-                        especialistas e saiba quando eles estarão disponíveis para atendê-lo.
+                            No nosso hospital, disponibilizamos informações detalhadas sobre os horários de plantão dos nossos
+                            médicos. Isso garante que você possa encontrar assistência médica sempre que precisar. Confira a programação dos
+                            especialistas e saiba quando eles estarão disponíveis para atendê-lo.
                         </p>
-
-                        <a
+                        <Link
                             href="/doctors"
                             className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
                         >
                             Veja aqui os horários de seu médico
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
