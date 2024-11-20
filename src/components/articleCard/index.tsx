@@ -27,7 +27,12 @@ const ArticleCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, create
                     className="h-56 w-full object-cover"
                     width={500}
                     height={300}
+                    style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                    }}
                 />
+
                 <div className="bg-white p-4 sm:p-6">
                     <time dateTime={createdAt} className="block text-xs text-gray-500">
                         {formattedDate}
