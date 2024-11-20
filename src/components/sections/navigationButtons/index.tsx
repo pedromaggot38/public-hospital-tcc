@@ -13,13 +13,24 @@ const buttonsData = [
         title: "Tipos de Atendimento",
         icon: "/svg/clipboard.svg",
         hoverColor: "#6495ED"
-    }
-
+    },
+    {
+        href: "/about/",
+        title: "",
+        icon: "/svg/.svg",
+        hoverColor: "#6495ED"
+    },
+    {
+        href: "/doctors",
+        title: "Horários de Plantão",
+        icon: "/svg/24-hour-service.svg",
+        hoverColor: "#6495ED"
+    },
 ];
 
 export default function NavigationButtonsSection() {
     return (
-        <section className="bg-white dark:bg-gray-900 rounded-lg">
+        <section className="bg-white dark:bg-gray-900 rounded-lg ">
             <div className="container p-4 mx-auto">
                 <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
                     Navegação Hospitalar
