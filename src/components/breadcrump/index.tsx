@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 interface BreadcrumbItem {
     label: string
@@ -12,73 +11,25 @@ interface BreadcrumbProps {
 
 export default function BreadCrumb({ items }: BreadcrumbProps) {
     return (
-        <nav aria-label="Breadcrumb" className='mb-2 px-2'>
-            <ol className="flex items-center gap-1 text-lg text-gray-500">
-                <li>
-                    <Link href="/" className="block transition hover:text-gray-700">
-                        <span className="sr-only">Início</span>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="size-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                            />
-                        </svg>
-                    </Link>
-                </li>
-                {items.length > 0 && (
-                    <li className="rtl:rotate-180">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="size-4"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </li>
-                )}
+        <div className="flex items-center py-2 overflow-x-auto whitespace-nowrap">
+            <a href="/" className="text-gray-600 dark:text-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+            </a>
+            <span className="mx-5 text-gray-500 dark:text-gray-300">/</span>
 
-                {/* Itens dinâmicos passados via props */}
-                {items.map((item, index) => (
-                    <React.Fragment key={index}>
-                        <li>
-                            <Link href={item.href} className="block transition hover:text-gray-700">
-                                {item.label}
-                            </Link>
-                        </li>
-                        
-                        {/* Ícone de separador entre itens */}
-                        {index < items.length - 1 && (
-                            <li className="rtl:rotate-180">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="size-4"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </li>
-                        )}
-                    </React.Fragment>
-                ))}
-            </ol>
-        </nav>
+            {items.map((item, index) => (
+                <React.Fragment key={index}>
+                    <a href={item.href} className="text-gray-600 dark:text-gray-200 hover:underline">
+                        {item.label}
+                    </a>
+
+                    {index < items.length - 1 && (
+                        <span className="mx-5 text-gray-500 dark:text-gray-300">/</span>
+                    )}
+                </React.Fragment>
+            ))}
+        </div>
     )
 }
