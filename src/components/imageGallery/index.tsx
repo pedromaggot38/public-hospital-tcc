@@ -42,6 +42,7 @@ const ImageGallery = () => {
                                     src={panel.image}
                                     alt={`Image ${index + 1}`}
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     style={{ objectFit: "cover" }}
                                     className="rounded-2xl"
                                 />
@@ -73,7 +74,9 @@ const ImageGallery = () => {
                                     fill
                                     style={{ objectFit: "cover" }}
                                     className="rounded-2xl"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                 />
+
                             </div>
                         </SwiperSlide>
                     ))}

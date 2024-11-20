@@ -49,7 +49,7 @@ export function Header() {
               width={60} height={60}
             />
           </Link>
-          <span className="font-bold text-primary">Hospital Maracaí</span>
+          <span className="font-bold text-[#444444]">Hospital Maracaí</span>
           {/*
             <Image
             src="/logo.svg"
@@ -66,7 +66,7 @@ export function Header() {
             <Link
               key={item.title}
               href={item.path}
-              className="font-bold text-muted-foreground hover:text-blue-700 cursor-pointer hover:scale-105 transition-all ease-in-out"
+              className="font-bold text-muted-foreground hover:text-[#6495ED] cursor-pointer hover:scale-105 transition-all ease-in-out"
             >
               <span>{item.title}</span>
               <span className="sr-only">, {item.accessibility}</span>

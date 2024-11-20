@@ -4,7 +4,7 @@ import Link from "next/link";
 export function Footer() {
   const services = [
     { href: "#", label: "1on1 Coaching" },
-    { href: "#", label: "Company Review" },
+    { href: "/articles", label: "Notícias" },
     { href: "about/horarios-atendimento", label: "Horários de Atendimento" },
     { href: "/about/services", label: "Tipos de Atendimento" },
     { href: "/doctors", label: "Horários de Plantão" },
