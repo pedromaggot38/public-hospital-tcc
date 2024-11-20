@@ -19,7 +19,7 @@ export function Footer() {
             <ul className="mt-8 flex gap-6">
               <li>
                 <a
-                  href="#"
+                  href="https://web.facebook.com/ahbm.maracai"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
@@ -75,7 +75,7 @@ export function Footer() {
                 </li>
 
                 <li>
-                  <a href="#" className="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                  <a href="/about/services" className="text-gray-700 transition hover:opacity-75"> Tipos de Atendimento </a>
                 </li>
 
                 <li>
