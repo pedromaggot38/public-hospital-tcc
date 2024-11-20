@@ -9,7 +9,7 @@ const ServicesAboutPage = () => {
         "Nosso setor de Urgência e Emergência está preparado para atender prontamente a todas as situações críticas. Contamos com uma equipe de profissionais altamente qualificados e equipamentos modernos para garantir o atendimento rápido e eficaz.",
       image:
         "/ServicesAboutPage/emergencia.jpg",
-      reverse: false,
+      reverse: true,
     },
     {
       title: "Consulta com Ortopedista para Traumas/Fraturas",
@@ -17,7 +17,7 @@ const ServicesAboutPage = () => {
         "Especialistas em ortopedia estão disponíveis para avaliar e tratar traumas e fraturas. Utilizamos técnicas avançadas de diagnóstico por imagem e tratamentos personalizados para garantir a melhor recuperação possível.",
       image:
         "/ServicesAboutPage/ortopedista.jpg",
-      reverse: true,
+      reverse: false,
     },
     {
       title: "Consulta com Cirurgião Geral",
@@ -25,7 +25,7 @@ const ServicesAboutPage = () => {
         "Nossos cirurgiões gerais estão à disposição para consultas e procedimentos cirúrgicos diversos. Desde pequenas intervenções até cirurgias mais complexas, oferecemos um atendimento abrangente e humanizado.",
       image:
         "/ServicesAboutPage/cirurgiao_geral.jpg",
-      reverse: false,
+      reverse: true,
     },
     {
       title: "Consulta com Anestesista",
@@ -33,7 +33,7 @@ const ServicesAboutPage = () => {
         "Antes de qualquer procedimento cirúrgico, nossos anestesistas realizam consultas detalhadas para garantir sua segurança e conforto. Avaliamos seu histórico médico e esclarecemos todas as suas dúvidas.",
       image:
         "/ServicesAboutPage/anestesia.jpg",
-      reverse: true,
+      reverse: false,
     },
     {
       title: "Exames Radiográficos",
@@ -41,7 +41,7 @@ const ServicesAboutPage = () => {
         "Oferecemos exames de radiografia com tecnologia de ponta para diagnósticos precisos e rápidos. Nossos profissionais garantem a realização dos exames com cuidado e precisão.",
       image:
         "/ServicesAboutPage/radiografia.jpg",
-      reverse: false,
+      reverse: true,
     },
     {
       title: "Eletrocardiograma (ECG)",
@@ -49,7 +49,7 @@ const ServicesAboutPage = () => {
         "Realizamos exames de eletrocardiograma para avaliar a atividade elétrica do coração. Este exame é essencial para o diagnóstico de diversas condições cardíacas.",
       image:
         "/ServicesAboutPage/eletrocardiograma-ecg.jpg",
-      reverse: true,
+      reverse: false,
     },
     {
       title: "Laboratoriais",
@@ -57,7 +57,7 @@ const ServicesAboutPage = () => {
         "Nosso laboratório está equipado para realizar uma ampla gama de exames laboratoriais. Oferecemos resultados precisos e rápidos, fundamentais para o diagnóstico e monitoramento de condições de saúde.",
       image:
         "/ServicesAboutPage/laboratoriais.jpg",
-      reverse: false,
+      reverse: true,
     },
     {
       title: "Anatomopatológico",
@@ -65,7 +65,7 @@ const ServicesAboutPage = () => {
         "Oferecemos serviços de exames anatomopatológicos, essenciais para o diagnóstico de diversas condições médicas. Nossos patologistas garantem uma análise detalhada e precisa.",
       image:
         "/ServicesAboutPage/anatomopatologico.png",
-      reverse: true,
+      reverse: false,
     },
     {
       title: "Tococardiografia",
@@ -73,7 +73,7 @@ const ServicesAboutPage = () => {
         "O tococardiograma é um exame importante para monitorar a saúde fetal durante a gravidez. Utilizamos equipamentos modernos para acompanhar a frequência cardíaca do bebê.",
       image:
         "/ServicesAboutPage/tococardiografia.jpg",
-      reverse: false,
+      reverse: true,
     },
   ];
 
