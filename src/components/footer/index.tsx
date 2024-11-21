@@ -16,12 +16,15 @@ export function Footer() {
     { href: "#", label: "#####" },
   ];
 
+  /*
+  // Caso seja necessário adicionar os campos, apenas descomente, assim como o .map no final do footer
+
   const footerLinks = [
     { href: "#", label: "Terms & Conditions" },
     { href: "#", label: "Privacy Policy" },
     { href: "#", label: "Cookies" },
   ];
-
+  */
   const socialLinks = [
     { href: "https://web.facebook.com/ahbm.maracai", label: "Facebook", icon: "facebook" },
     { href: "https://www.instagram.com/ahbm.maracai/", label: "Instagram", icon: "instagram" },
@@ -140,6 +143,7 @@ export function Footer() {
         <p className="text-xs">
           Copyright &copy; {new Date().getFullYear()} | todos os direitos reservados.
         </p>
+        {/*
         <div className="mt-4 flex justify-center gap-6">
           {footerLinks.map((link, index) => (
             <Link key={index} href={link.href} className="text-xs text-gray-700 hover:text-opacity-75">
@@ -147,6 +151,7 @@ export function Footer() {
             </Link>
           ))}
         </div>
+        */}
       </div>
     </footer>
   );
