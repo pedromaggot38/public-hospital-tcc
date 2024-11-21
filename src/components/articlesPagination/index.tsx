@@ -1,10 +1,11 @@
+import { useEffect } from "react";
 import {
     Pagination,
     PaginationContent,
     PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-} from "@/components/ui/pagination"
+} from "@/components/ui/pagination";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -12,12 +13,12 @@ export function ArticlesPagination({
     totalItems,
     itemsPerPage,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
 }: {
-    totalItems: number,
-    itemsPerPage: number,
-    currentPage: number,
-    setCurrentPage: (page: number) => void
+    totalItems: number;
+    itemsPerPage: number;
+    currentPage: number;
+    setCurrentPage: (page: number) => void;
 }) {
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
@@ -76,6 +77,10 @@ export function ArticlesPagination({
         }
         return renderedPages;
     };
+    
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [currentPage]);
 
     return (
         <Pagination className="m-4">
@@ -105,6 +110,5 @@ export function ArticlesPagination({
                 </PaginationItem>
             </PaginationContent>
         </Pagination>
-    )
-
+    );
 }

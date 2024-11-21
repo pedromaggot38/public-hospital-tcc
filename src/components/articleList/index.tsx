@@ -17,8 +17,7 @@ export function ArticleList() {
     const isSmallScreen = useMediaQuery({ maxWidth: 640 });
     const isMediumScreen = useMediaQuery({ minWidth: 641, maxWidth: 1024 });
 
-    const itemsPerPage = isSmallScreen ? 4 : isMediumScreen ? 6 : 9;
-
+    const itemsPerPage = isSmallScreen ? 6 : isMediumScreen ? 6 : 9;
 
     const lastItemIndex = currentPage * itemsPerPage;
     const firstItemIndex = lastItemIndex - itemsPerPage;
