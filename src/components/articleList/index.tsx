@@ -12,6 +12,7 @@ export function ArticleList() {
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [itemsPerPage, setItemsPerPage] = useState(6);
 
     const lastItemIndex = currentPage * itemsPerPage;
