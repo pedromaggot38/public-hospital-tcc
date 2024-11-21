@@ -139,7 +139,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mt-12 px-4 py-6 text-center lg:col-span-5 lg:px-8">
+      <div className="mt-6 px-4 py-6 text-center lg:col-span-5 lg:px-8">
         <p className="text-xs">
           Copyright &copy; {new Date().getFullYear()} | todos os direitos reservados.
         </p>
