@@ -4,6 +4,7 @@ import { Article } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import ArticleCard from "../articleListCard";
+import { useMediaQuery } from 'react-responsive'
 import { ArticlesPagination } from "../articlesPagination";
 
 export function ArticleList() {
@@ -12,8 +13,12 @@ export function ArticleList() {
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [itemsPerPage, setItemsPerPage] = useState(1);
+
+    const isSmallScreen = useMediaQuery({ maxWidth: 640 });
+    const isMediumScreen = useMediaQuery({ minWidth: 641, maxWidth: 1024 });
+
+    const itemsPerPage = isSmallScreen ? 4 : isMediumScreen ? 6 : 9;
+
 
     const lastItemIndex = currentPage * itemsPerPage;
     const firstItemIndex = lastItemIndex - itemsPerPage;
