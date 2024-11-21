@@ -1,11 +1,12 @@
 import {
     Pagination,
     PaginationContent,
+    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
 } from "@/components/ui/pagination"
+import { Button } from "../ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function ArticlesPagination({
     totalItems,
@@ -18,13 +19,21 @@ export function ArticlesPagination({
     currentPage: number,
     setCurrentPage: (page: number) => void
 }) {
-    const pages = [];
+    const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-        pages.push(i);
+        pageNumbers.push(i);
     }
 
+    const maxPageNum = 3;
+    const pageNumLimit = Math.floor(maxPageNum / 2);
+
+    const activePages = pageNumbers.slice(
+        Math.max(0, currentPage - 1 - pageNumLimit),
+        Math.min(currentPage - 1 + pageNumLimit + 1, pageNumbers.length)
+    );
+
     const handleNextPage = () => {
-        if (currentPage < pages.length) {
+        if (currentPage < pageNumbers.length) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -35,32 +44,64 @@ export function ArticlesPagination({
         }
     };
 
+    const renderPages = () => {
+        const renderedPages = activePages.map((page, idx) => (
+            <PaginationItem
+                key={idx}
+                className={currentPage === page ? "bg-neutral-100 rounded-md" : ""}
+            >
+                <PaginationLink onClick={() => setCurrentPage(page)}>
+                    {page}
+                </PaginationLink>
+            </PaginationItem>
+        ));
+
+        if (activePages[0] > 1) {
+            renderedPages.unshift(
+                <PaginationEllipsis
+                    key="ellipsis-start"
+                    onClick={() => setCurrentPage(activePages[0] - 1)}
+                />
+            );
+        }
+        if (activePages[activePages.length - 1] < pageNumbers.length) {
+            renderedPages.push(
+                <PaginationEllipsis
+                    key="ellipsis-end"
+                    onClick={() =>
+                        setCurrentPage(activePages[activePages.length - 1] + 1)
+                    }
+                />
+            );
+        }
+        return renderedPages;
+    };
+
     return (
         <Pagination className="m-4">
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevious
+                    <Button
+                        variant="outline"
+                        size="icon"
                         onClick={() => handlePreviousPage()}
+                        disabled={currentPage === 1}
                     >
-                        Anterior
-                    </PaginationPrevious>
+                        <ChevronLeft />
+                    </Button>
                 </PaginationItem>
-                {pages.map((page) => (
-                    <PaginationItem key={page}>
-                        <PaginationLink
-                            onClick={() => setCurrentPage(page)}
-                            className={page === currentPage ? "bg-blue-500 hover:bg-blue-400 text-white" : ""}
-                        >
-                            {page}
-                        </PaginationLink>
-                    </PaginationItem>
-                ))}
+
+                {renderPages()}
+
                 <PaginationItem>
-                    <PaginationNext
+                    <Button
+                        variant="outline"
+                        size="icon"
                         onClick={() => handleNextPage()}
+                        disabled={currentPage === pageNumbers.length}
                     >
-                        Próximo
-                    </PaginationNext>
+                        <ChevronRight />
+                    </Button>
                 </PaginationItem>
             </PaginationContent>
         </Pagination>
