@@ -4,11 +4,19 @@ import { Article } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import ArticleCard from "../articleListCard";
+import { ArticlesPagination } from "../articlesPagination";
 
 export function ArticleList() {
     const [articles, setArticles] = useState<Article[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [totalArticles, setTotalArticles] = useState<number>(0);
     const [error, setError] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(6);
+
+    const lastItemIndex = currentPage * itemsPerPage;
+    const firstItemIndex = lastItemIndex - itemsPerPage;
+    const currentItems = articles.slice(firstItemIndex, lastItemIndex);
 
     useEffect(() => {
         const fetchArticles = async () => {
@@ -18,8 +26,10 @@ export function ArticleList() {
                     throw new Error("Failed to fetch articles");
                 }
                 const data = await response.json();
-                if (Array.isArray(data)) {
-                    setArticles(data);
+
+                if (data.articles && Array.isArray(data.articles)) {
+                    setArticles(data.articles);
+                    setTotalArticles(data.totalArticles || 0);
                 } else {
                     throw new Error("Formato de dados inválido");
                 }
@@ -50,19 +60,27 @@ export function ArticleList() {
             ) : error ? (
                 <p>{error}</p>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {articles.map((article) => (
-                        <ArticleCard
-                            key={article.slug}
-                            title={article.title}
-                            subtitle={article.subtitle}
-                            imageUrl={article.imageUrl || '/news-placeholder.png'}
-                            createdAt={new Date(article.createdAt).toISOString()}
-                            slug={article.slug}
-                        />
-                    ))}
+                <div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {currentItems.map((article) => (
+                            <ArticleCard
+                                key={article.slug}
+                                title={article.title}
+                                subtitle={article.subtitle}
+                                imageUrl={article.imageUrl || '/news-placeholder.png'}
+                                createdAt={new Date(article.createdAt).toISOString()}
+                                slug={article.slug}
+                            />
+                        ))}
+                    </div>
                 </div>
             )}
+            <ArticlesPagination
+                totalItems={totalArticles}
+                itemsPerPage={itemsPerPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </div>
     );
 }
