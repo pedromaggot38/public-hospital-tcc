@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const buttonsData = [
     {
-        href: "about/horarios-atendimento",
-        title: "Horários de Atendimento",
+        href: "about/horarios-gerais",
+        title: "Horários Gerais de Funcionamento",
         icon: "/svg/time.svg",
     },
     {

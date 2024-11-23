@@ -4,7 +4,7 @@ import Link from "next/link";
 export function Footer() {
   const services = [
     { href: "/articles", label: "Notícias" },
-    { href: "about/horarios-atendimento", label: "Horários de Atendimento" },
+    { href: "about/horarios-gerais", label: "Horários Gerais" },
     { href: "/about/services", label: "Tipos de Atendimento" },
     { href: "/doctors", label: "Horários de Plantão" },
   ];
