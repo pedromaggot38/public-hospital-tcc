@@ -9,7 +9,7 @@ const ServicesAboutPage = () => {
       <BreadCrumb
         items={[
           { label: "Sobre", href: "/about" },
-          { label: "Serviços", href: "/about/services" },
+          { label: "Tipos de Atendimento", href: "/about/services" },
         ]}
       />
 

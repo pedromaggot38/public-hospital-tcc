@@ -19,7 +19,7 @@ export default function ServicesSection() {
                 </div>
                 <div className="flex items-center justify-center">
                     <Link href="/about/services">
-                        <div className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400">
+                        <div className="mt-8 inline-block rounded bg-blue-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-600 focus:outline-none focus:ring focus:ring-yellow-400">
                             Mais informações
                         </div>
                     </Link>

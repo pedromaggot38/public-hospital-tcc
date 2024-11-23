@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export function Footer() {
   const services = [
-    { href: "#", label: "1on1 Coaching" },
     { href: "/articles", label: "Notícias" },
     { href: "about/horarios-atendimento", label: "Horários de Atendimento" },
     { href: "/about/services", label: "Tipos de Atendimento" },
@@ -12,8 +11,6 @@ export function Footer() {
 
   const company = [
     { href: "/about", label: "Sobre" },
-    { href: "#", label: "Conheça a Equipe" },
-    { href: "#", label: "#####" },
   ];
 
   /*
@@ -138,7 +135,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-
       <div className="mt-6 px-4 py-6 text-center lg:col-span-5 lg:px-8">
         <p className="text-xs">
           Copyright &copy; {new Date().getFullYear()} | todos os direitos reservados.

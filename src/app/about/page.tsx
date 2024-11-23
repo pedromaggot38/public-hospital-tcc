@@ -11,7 +11,7 @@ const About = () => {
                     { label: 'Sobre', href: '/about' },
                 ]}
             />
-            <div>
+            <div className="flex flex-col gap-6">
                 <NavigationButtonsSection />
                 <ImageGallery />
             </div>
