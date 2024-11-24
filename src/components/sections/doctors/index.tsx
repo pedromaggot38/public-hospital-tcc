@@ -14,6 +14,7 @@ export default function DoctorsSection() {
                             width={800}
                             height={800}
                             className="absolute inset-0 h-full w-full object-cover rounded-lg"
+                            priority
                         />
                     </div>
 

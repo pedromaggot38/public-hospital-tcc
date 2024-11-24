@@ -25,6 +25,15 @@ const ImageGallery = () => {
 
     return (
         <div className="w-[100%] h-[70vh] overflow-hidden">
+            <div className="text-center mb-6">
+                <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+                    Galeria
+                </h1>
+                
+                <div className="flex mt-6 justify-center">
+                    <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
+                </div>
+            </div>
             <div className="hidden lg:flex w-full h-full justify-center items-center">
                 <div className="w-[80%] h-full flex items-center justify-center gap-2">
                     {

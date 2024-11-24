@@ -13,26 +13,26 @@ const sections = [
             {
                 title: "Pronto-Socorro",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, centro - Maracaí/SP.
-                    Horários: Atendimento 24h por dia, 7 dias por semana.
+                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Horário de funcionamento: Atendimento 24h por dia, 7 dias por semana.
                 `,
             },
             {
                 title: "Internação",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, centro - Maracaí/SP.
-                    Horários: Atendimento 24h por dia, 7 dias por semana.
+                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Horário de funcionamento: Atendimento 24h por dia, 7 dias por semana.
                 `,
             },
             {
                 title: "Exames Radiológicos",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, centro - Maracaí/SP.
-                    Atendimento segunda a sexta-feira:
-                    Horário 7h às 12h e das 16h às 21h.
-                    Atendimento finais de semana:
-                    Sábado 7h às 12h.
-                    Domingo 7h às 11h.
+                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Atendimento de segunda a sexta-feira:
+                    Das 7h às 12h e das 16h às 21h.
+                    Atendimento nos finais de semana:
+                    Sábado: das 7h às 12h.
+                    Domingo: das 7h às 11h.
                 `,
             },
         ],
@@ -44,40 +44,42 @@ const sections = [
                 title: "Orientações Gerais",
                 content: `
                     VISITA SUSPENSA
-                    Pacientes suspeitos ou confirmados Covid-19.
+                    Para pacientes suspeitos ou confirmados com Covid-19.
+
                     Orientações para os visitantes:
-                    Higienizar as mãos com água e sabão antes e após qualquer contato com o paciente e/ou áreas próximas a ele;
-                    O álcool gel está disponível em todas as dependências do hospital;
-                    Contatos físicos devem ser evitados;
-                    Evitar a circulação pelas áreas comuns do hospital.
+                    - Higienizar as mãos com água e sabão antes e após qualquer contato com o paciente e/ou áreas próximas a ele.
+                    - O álcool em gel está disponível em todas as dependências do hospital.
+                    - Contatos físicos devem ser evitados.
+                    - Evitar a circulação pelas áreas comuns do hospital.
 
                     Atenção:
-                    Somente será permitida a entrada de acompanhantes que estiverem sem sintomas de tosse, coriza ou febre.
-                    É obrigatório o uso de crachá de identificação visível. Ele será entregue pelo vigia na recepção; após a visita, devolva o crachá.
-                    É permitido a entrada de uma visita por vez, podendo fazer revezamento, sendo obrigatório uso de crachá em local visível.
-                    Não é permitido a entrada de visitantes e acompanhantes usando trajes inadequados.
-                    Não é permitido trazer qualquer tipo de alimento e bebidas sem autorização prévia da nutricionista.
-                    A equipe de enfermagem e serviço social, avaliará a necessidade de acompanhamento nos demais casos.
+                    - Somente será permitida a entrada de acompanhantes que não apresentem sintomas de tosse, coriza ou febre.
+                    - É obrigatório o uso de crachá de identificação visível, que será entregue pelo vigia na recepção. Após a visita, o crachá deve ser devolvido.
+                    - É permitido o revezamento de visitas, sendo permitida a entrada de uma visita por vez. O uso de crachá visível é obrigatório.
+                    - Não é permitido o ingresso de visitantes ou acompanhantes com trajes inadequados.
+                    - Não é permitido trazer alimentos e bebidas sem autorização prévia da nutricionista.
+                    - A equipe de enfermagem e o serviço social avaliarão a necessidade de acompanhamento nos demais casos.
                 `,
             },
             {
                 title: "Horário de Visitas",
                 content: `
-                    Tarde: 14h às 15h.
-                    Noite: 19h às 20h.
+                    Tarde: das 14h às 15h.
+                    Noite: das 19h às 20h.
                 `,
             },
             {
                 title: "Troca de Acompanhante",
                 content: `
-                    Manhã: 07:30h às 08:30h.
-                    Tarde: 13h às 14h.
-                    Noite: 19:30h às 20h:30h.
+                    Manhã: das 07h30 às 08h30.
+                    Tarde: das 13h às 14h.
+                    Noite: das 19h30 às 20h30.
                 `,
             },
         ],
     },
 ];
+
 
 export function SchedulesSection() {
     return (

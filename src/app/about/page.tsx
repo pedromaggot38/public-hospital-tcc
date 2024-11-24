@@ -1,5 +1,6 @@
 import BreadCrumb from "@/components/breadcrumb"
 import ImageGallery from "@/components/imageGallery"
+import LocationMap from "@/components/locationMap"
 import NavigationButtonsSection from "@/components/sections/navigationButtons"
 
 const About = () => {
@@ -13,6 +14,7 @@ const About = () => {
             />
             <div className="flex flex-col gap-6">
                 <NavigationButtonsSection />
+                <LocationMap />
                 <ImageGallery />
             </div>
         </div>
