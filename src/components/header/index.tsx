@@ -44,7 +44,7 @@ export function Header() {
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-4">
           <Link href="/">
-            <Image src="/logo.jpg" alt="Logo"
+            <Image src="/logo.png" alt="Logo"
               className="rounded-full"
               width={60} height={60}
             />
@@ -52,7 +52,7 @@ export function Header() {
           <span className="font-bold text-[#444444]">Hospital Maracaí</span>
           {/*
             <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Logo"
             width={180} // Largura fixa
             height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
@@ -95,7 +95,7 @@ export function Header() {
                 href="/"
                 onClick={handleSheetLinkClick}
               >
-                <Image src="/logo.jpg" alt="Logo"
+                <Image src="/logo.png" alt="Logo"
                   className="rounded-full"
                   width={50} height={50}
                 />

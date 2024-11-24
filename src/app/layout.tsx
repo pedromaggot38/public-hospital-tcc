@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
-        <link rel="icon" href="/logo.jpg" />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body className="antialiased">
         <div className="xl:px-20 md:px-10 sm:px-2">
