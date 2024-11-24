@@ -12,6 +12,9 @@ const About = () => {
                     { label: 'Sobre', href: '/about' },
                 ]}
             />
+            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-5">
+                Sobre
+            </h2>
             <div className="flex flex-col gap-6">
                 <NavigationButtonsSection />
                 <LocationMap />

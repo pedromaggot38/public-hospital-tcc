@@ -27,13 +27,13 @@ const buttonsData = [
 
 export default function NavigationButtonsSection() {
     return (
-        <section className="py-16">
+        <section className="pb-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="mb-14 text-center">
                     <span className="py-1 px-4 bg-blue-100 rounded-full text-xs font-medium text-blue-600 text-center">
                         Navegação
                     </span>
-                    <h2 className="text-4xl text-center font-bold text-gray-900 py-5">
+                    <h2 className="text-3xl text-center font-bold text-gray-900 py-5">
                         Navegação Hospitalar
                     </h2>
                     <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">

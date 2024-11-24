@@ -9,7 +9,12 @@ const Articles = () => {
                     { label: 'Notícias', href: '/articles' },
                 ]}
             />
-            <ArticleList />
+            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-5">
+                Notícias
+            </h2>
+            <div className="m-4">
+                <ArticleList />
+            </div>
         </div>
     )
 }

@@ -35,9 +35,6 @@ export function DoctorList() {
 
     return (
         <div>
-
-            <h2 className="text-3xl font-bold sm:text-4xl">Médicos</h2>
-
             {isLoading ? (
                 <div className="overflow-x-auto">
                     <table className="min-w-full border-collapse border border-gray-300">

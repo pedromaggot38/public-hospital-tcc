@@ -9,7 +9,12 @@ const Doctors = () => {
                     { label: 'Médicos', href: '/doctors' },
                 ]}
             />
-            <DoctorList />
+            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-5">
+                Médicos
+            </h2>
+            <div className="m-4">
+                <DoctorList />
+            </div>
         </div>
     )
 }

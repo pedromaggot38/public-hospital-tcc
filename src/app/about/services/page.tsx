@@ -12,8 +12,10 @@ const ServicesAboutPage = () => {
           { label: "Tipos de Atendimento", href: "/about/services" },
         ]}
       />
-
-      <div className="my-8">
+      <h2 className="text-3xl font-bold text-gray-900 py-5">
+        Tipos de Atendimento
+      </h2>
+      <div className="m-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Consultas Médicas</h2>
         {medicalConsultations.map((section, index) => (
           <section
