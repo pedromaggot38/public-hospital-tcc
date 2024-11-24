@@ -30,6 +30,11 @@ const menuItems = [
     path: "/doctors",
     accessibility: "Médicos",
   },
+  {
+    title: "Portal Transparência",
+    path: "/portal-transparencia",
+    accessibility: "Portal da Transparência",
+  }
 ];
 
 export function Header() {
@@ -50,15 +55,6 @@ export function Header() {
             />
           </Link>
           <span className="font-bold text-[#444444]">Hospital Maracaí</span>
-          {/*
-            <Image
-            src="/logo.png"
-            alt="Logo"
-            width={180} // Largura fixa
-            height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
-            style={{ objectFit: 'contain' }} // Ajusta a imagem para caber no espaço sem distorção
-          />
-          */}
         </div>
         <ul className="lg:flex gap-6 hidden items-center">
           <Separator orientation="vertical" className="h-10" />

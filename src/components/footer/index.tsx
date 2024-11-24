@@ -11,6 +11,7 @@ export function Footer() {
 
   const company = [
     { href: "/about", label: "Sobre" },
+    { href: "/portal-transparencia", label: "Portal Transparência" },
   ];
 
   /*
