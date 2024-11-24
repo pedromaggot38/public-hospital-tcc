@@ -7,7 +7,7 @@ export default function ServicesSection() {
         <section className="bg-gray-900 text-white rounded-lg">
             <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                 <div className="max-w-xl">
-                    <h2 className="text-3xl font-bold sm:text-4xl">Tipos de Consultas</h2>
+                    <h2 className="text-3xl font-bold sm:text-4xl">Tipos de Atendimentos</h2>
                     <p className="mt-4 text-gray-300">
                         Oferecemos uma variedade de consultas para atender às suas necessidades de saúde. Veja abaixo as opções disponíveis:
                     </p>

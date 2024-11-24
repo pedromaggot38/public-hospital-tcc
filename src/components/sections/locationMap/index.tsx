@@ -1,11 +1,14 @@
 export default function LocationMap() {
     return (
         <div>
-            <div className="text-center mb-6">
-                <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
+            <div className="mb-14 text-center">
+                <span className="py-1 px-4 bg-blue-100 rounded-full text-xs font-medium text-blue-600 text-center">
                     Localização
-                </h1>
-                <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500">
+                </span>
+                <h2 className="text-4xl text-center font-bold text-gray-900 py-5">
+                    Localização
+                </h2>
+                <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
                     Verifique nosso endereço diretamente pelo mapa
                 </p>
                 <div className="flex mt-6 justify-center">

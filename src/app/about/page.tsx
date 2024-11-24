@@ -1,6 +1,6 @@
 import BreadCrumb from "@/components/breadcrumb"
-import ImageGallery from "@/components/imageGallery"
-import LocationMap from "@/components/locationMap"
+import ImageGallery from "@/components/sections/imageGallery"
+import LocationMap from "@/components/sections/locationMap"
 import NavigationButtonsSection from "@/components/sections/navigationButtons"
 
 const About = () => {

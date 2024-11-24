@@ -49,12 +49,14 @@ export function Header() {
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-4">
           <Link href="/">
-            <Image src="/logo.png" alt="Logo"
-              className="rounded-full"
-              width={60} height={60}
-            />
+            <div className="flex items-center gap-4">
+              <Image src="/logo.png" alt="Logo"
+                className="rounded-full"
+                width={80} height={80}
+              />
+              <span className="font-bold text-white">Hospital Maracaí</span>
+            </div>
           </Link>
-          <span className="font-bold text-[#444444]">Hospital Maracaí</span>
         </div>
         <ul className="lg:flex gap-6 hidden items-center">
           <Separator orientation="vertical" className="h-10" />
@@ -62,7 +64,7 @@ export function Header() {
             <Link
               key={item.title}
               href={item.path}
-              className="font-bold text-muted-foreground hover:text-[#6495ED] cursor-pointer hover:scale-105 transition-all ease-in-out"
+              className="font-bold text-muted-foreground text-white hover:text-[#16294d] cursor-pointer hover:scale-105 transition-all ease-in-out"
             >
               <span>{item.title}</span>
               <span className="sr-only">, {item.accessibility}</span>

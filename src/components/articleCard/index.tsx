@@ -19,7 +19,7 @@ const ArticleCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, create
     }).format(new Date(createdAt));
 
     return (
-        <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <article className="overflow-hidden rounded-lg transition shadowBlue">
             <Link href={`/articles/${slug}`}>
                 <Image
                     alt={title}

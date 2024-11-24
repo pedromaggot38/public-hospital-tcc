@@ -6,9 +6,11 @@ import ServicesSection from "@/components/sections/services";
 export default function Home() {
   return (
     <div>
-      <LastArticlesCarousel />
+      <div className="mb-4">
+        <LastArticlesCarousel />
+      </div>
       <div className="flex mx-auto gap-6">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <DoctorsSection />
           <ServicesSection />
         </div>

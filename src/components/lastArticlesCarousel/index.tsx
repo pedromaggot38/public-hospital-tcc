@@ -89,7 +89,7 @@ const LastArticlesCarousel: React.FC = () => {
     }
 
     return (
-        <div className='shadow-lg block xl:hidden'>
+        <div className='block xl:hidden'>
             <h2 className="text-2xl font-bold text-gray-800">Notícias recentes</h2>
             <div>
                 <Swiper

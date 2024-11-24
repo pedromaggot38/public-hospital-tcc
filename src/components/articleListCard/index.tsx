@@ -19,7 +19,7 @@ const ArticleListCard: React.FC<ArticleProps> = ({ title, subtitle, imageUrl, cr
     }).format(new Date(createdAt));
 
     return (
-        <article className="flex bg-white transition hover:shadow-xl">
+        <article className="flex bg-white transition shadowBlue">
             <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time dateTime={createdAt} className="block text-xs text-gray-500">
                     {formattedDate}
