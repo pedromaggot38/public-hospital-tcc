@@ -21,6 +21,14 @@ const buttonsData = [
         hoverColor: "group-hover:bg-lime-600",
         description: `${CONTACT_INFO.email}`,
     },
+    {
+        href: `${CONTACT_INFO.mapsLink}`,
+        title: "Localização",
+        icon: "/svg/location.svg",
+        bgColor: "bg-pink-200",
+        hoverColor: "group-hover:bg-pink-600",
+        description: `${CONTACT_INFO.address}`,
+    },
 ];
 
 const ContactUsSection = () => {
@@ -31,6 +39,7 @@ const ContactUsSection = () => {
                 sectionTitle="Informações para Contato"
                 sectionDescription="Para dúvidas, agendamentos ou emergências, nossa equipe está pronta para ajudar. Entre em contato conosco através dos nossos canais de atendimento e receba o suporte necessário com rapidez e eficiência."
                 badge="Contato"
+                target="_blank"
             />
             <Separator className="my-6" />
             <div className="mb-14 text-center">

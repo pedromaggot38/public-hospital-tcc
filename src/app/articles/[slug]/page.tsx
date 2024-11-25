@@ -34,6 +34,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
       <BreadCrumb
         items={[
           { label: 'Notícias', href: '/articles' },
+          { label: '*', href: `/articles/${article.slug}` },
         ]}
       />
 
