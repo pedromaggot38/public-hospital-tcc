@@ -1,4 +1,5 @@
 import BreadCrumb from "@/components/breadcrumb";
+import PagesTitles from "@/components/pagesTitles";
 import { SchedulesSection } from "@/components/sections/schedules";
 
 const ServicesAboutPage = () => {
@@ -11,9 +12,7 @@ const ServicesAboutPage = () => {
           { label: "Horários Gerais", href: "/about/horarios-gerais" },
         ]}
       />
-      <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-5 mb-4">
-        Horários Gerais
-      </h2>
+      <PagesTitles title="Horários Gerais" />
       <div className="max-w-4xl mx-auto">
         <SchedulesSection />
       </div>

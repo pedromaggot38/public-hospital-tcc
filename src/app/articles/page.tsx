@@ -1,5 +1,6 @@
 import { ArticleList } from "@/components/articleList"
 import BreadCrumb from "@/components/breadcrumb"
+import PagesTitles from "@/components/pagesTitles"
 
 const Articles = () => {
     return (
@@ -9,9 +10,7 @@ const Articles = () => {
                     { label: 'Notícias', href: '/articles' },
                 ]}
             />
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 py-5">
-                Notícias
-            </h2>
+            <PagesTitles title="Notícias" />
             <div className="m-4">
                 <ArticleList />
             </div>

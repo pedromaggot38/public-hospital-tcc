@@ -1,6 +1,7 @@
 import BreadCrumb from "@/components/breadcrumb";
 import Image from "next/image";
 import { medicalConsultations, medicalExams } from "./servicesData"
+import PagesTitles from "@/components/pagesTitles";
 
 const ServicesAboutPage = () => {
 
@@ -12,9 +13,7 @@ const ServicesAboutPage = () => {
           { label: "Tipos de Atendimento", href: "/about/services" },
         ]}
       />
-      <h2 className="text-3xl font-bold text-gray-900 py-5">
-        Tipos de Atendimento
-      </h2>
+      <PagesTitles title="Tipos de Atendimento" />
       <div className="m-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Consultas Médicas</h2>
         {medicalConsultations.map((section, index) => (
@@ -43,7 +42,7 @@ const ServicesAboutPage = () => {
         ))}
       </div>
 
-      <div className="my-8">
+      <div className="m-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Exames Médicos</h2>
         {medicalExams.map((section, index) => (
           <section

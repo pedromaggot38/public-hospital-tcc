@@ -21,15 +21,16 @@ const menuItems = [
     accessibility: "Sobre Nós",
   },
   {
+    title: "Plantão",
+    path: "/doctors",
+    accessibility: "Médicos",
+  },
+  {
     title: "Notícias",
     path: "/articles",
     accessibility: "Notícias",
   },
-  {
-    title: "Médicos",
-    path: "/doctors",
-    accessibility: "Médicos",
-  },
+  
   {
     title: "Portal Transparência",
     path: "/portal-transparencia",

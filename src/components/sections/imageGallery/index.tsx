@@ -33,7 +33,7 @@ const ImageGallery = () => {
                     Galeria
                 </h2>
                 <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
-                    Verifique nosso endereço diretamente pelo mapa
+                    Explore as imagens que refletem a infraestrutura e o ambiente nosso hospital.
                 </p>
                 <div className="flex mt-6 justify-center">
                     <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
