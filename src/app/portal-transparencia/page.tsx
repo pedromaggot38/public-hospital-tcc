@@ -4,7 +4,7 @@ import Features from "@/components/sections/features"
 
 const buttonsData = [
     {
-        href: "",
+        href: "/despesas.pdf",
         title: "Despesas",
         icon: "/svg/despesas.svg",
         bgColor: "bg-teal-200",
@@ -12,7 +12,7 @@ const buttonsData = [
         description: "Veja como os recursos públicos estão sendo utilizados, detalhados por categoria e período.",
     },
     {
-        href: "",
+        href: "/receitas.pdf",
         title: "Receitas",
         icon: "/svg/receitas.svg",
         bgColor: "bg-violet-200",
@@ -20,7 +20,7 @@ const buttonsData = [
         description: "Consulte as receitas obtidas por nossa instituição, incluindo fontes e valores arrecadados.",
     },
     {
-        href: "",
+        href: "https://drive.google.com/drive/folders/1vDvU6ovGcCwDaUEZA9vpsiniYG7A-Vsi?usp=sharing",
         title: "Licitações e Contratos",
         icon: "/svg/contratos.svg",
         bgColor: "bg-orange-200",
