@@ -52,7 +52,7 @@ export function Footer() {
                 </Link>
               </div>
               <div>
-                <Link href={`tel:${CONTACT_INFO.email}`} className="flex items-center text-sm text-gray-700">
+                <Link href={`mailto:${CONTACT_INFO.email}`} className="flex items-center text-sm text-gray-700">
                   <Image
                     src="/svg/mail.svg"
                     alt="email"
@@ -63,7 +63,7 @@ export function Footer() {
                   <span>{CONTACT_INFO.email}</span>
                 </Link>
               </div>
-              <Link href={CONTACT_INFO.address} rel="noreferrer" target="_blank">
+              <Link href={CONTACT_INFO.mapsLink} rel="noreferrer" target="_blank">
                 <Image
                   src="/svg/location.svg"
                   alt="localização"
