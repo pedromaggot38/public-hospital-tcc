@@ -5,6 +5,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { CONTACT_INFO } from "@/lib/vars";
 
 const sections = [
     {
@@ -13,21 +14,21 @@ const sections = [
             {
                 title: "Pronto-Socorro",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Endereço: ${CONTACT_INFO.address}.
                     Horário de funcionamento: Atendimento 24h por dia, 7 dias por semana.
                 `,
             },
             {
                 title: "Internação",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Endereço: ${CONTACT_INFO.address}.
                     Horário de funcionamento: Atendimento 24h por dia, 7 dias por semana.
                 `,
             },
             {
                 title: "Exames Radiológicos",
                 content: `
-                    Endereço: Avenida José Bonifácio, 382, Centro - Maracaí/SP.
+                    Endereço: ${CONTACT_INFO.address}.
                     Atendimento de segunda a sexta-feira:
                     Das 7h às 12h e das 16h às 21h.
                     Atendimento nos finais de semana:
@@ -79,7 +80,6 @@ const sections = [
         ],
     },
 ];
-
 
 export function SchedulesSection() {
     return (

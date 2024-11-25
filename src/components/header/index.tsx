@@ -8,7 +8,6 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { Separator } from "../ui/separator";
 
-
 const menuItems = [
   {
     title: "Início",
@@ -21,22 +20,27 @@ const menuItems = [
     accessibility: "Sobre Nós",
   },
   {
+    title: "Notícias",
+    path: "/articles",
+    accessibility: "Notícias",
+  },
+  {
     title: "Plantão",
     path: "/doctors",
     accessibility: "Médicos",
   },
   {
-    title: "Notícias",
-    path: "/articles",
-    accessibility: "Notícias",
+    title: "Contato",
+    path: "/contact-us",
+    accessibility: "Contato",
   },
-  
   {
     title: "Portal Transparência",
     path: "/portal-transparencia",
     accessibility: "Portal da Transparência",
-  }
+  },
 ];
+
 
 export function Header() {
   const [isSheetOpen, setSheetIsOpen] = useState(false);

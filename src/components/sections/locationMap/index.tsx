@@ -1,3 +1,4 @@
+import { CONTACT_INFO } from "@/lib/vars";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ export default function LocationMap() {
                 <div className="flex my-6 justify-center">
                     <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
                 </div>
-                <Link href="https://maps.app.goo.gl/MH2taJnWe67AhEcF6"
+                <Link href={CONTACT_INFO.mapsLink}
                     rel="noreferrer"
                     target="_blank"
                 >
@@ -28,8 +29,8 @@ export default function LocationMap() {
                         height={25}
                         className="mr-2 inline-block"
                     />
-                    <span className="text-sm text-gray-700">Avenida José Bonifácio, 382, Centro - Maracaí/SP </span>
-                    <p className="text-sm text-gray-700">CEP: 19840-000</p>
+                    <span className="text-sm text-gray-700">Endereço: {CONTACT_INFO.address}</span>
+                    <p className="text-sm text-gray-700">CEP: {CONTACT_INFO.cep}</p>
                 </Link>
             </div>
             <div className="px-4 py-16 sm:px-6 lg:px-8 relative w-full max-w-full mx-auto h-[500px]">
@@ -38,7 +39,7 @@ export default function LocationMap() {
                     height="100%"
                     className="absolute inset-0"
                     title="map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.112739205097!2d-50.66562825473443!3d-22.612422963482707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9495201db07b743b%3A0x3ad137216db4ee7!2sAssocia%C3%A7%C3%A3o%20Hospital%20Beneficente%20de%20Maracai!5e0!3m2!1spt-BR!2sbr!4v1732381556665!5m2!1spt-BR!2sbr"
+                    src={CONTACT_INFO.embedMapsLink}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                 />

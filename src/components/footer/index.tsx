@@ -1,17 +1,19 @@
+import { CONTACT_INFO } from "@/lib/vars";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
   const services = [
-    { href: "/articles", label: "Notícias" },
     { href: "about/horarios-gerais", label: "Horários Gerais" },
     { href: "/about/services", label: "Tipos de Atendimento" },
     { href: "/doctors", label: "Horários de Plantão" },
+    { href: "/articles", label: "Notícias" },
   ];
 
   const company = [
     { href: "/about", label: "Sobre" },
     { href: "/portal-transparencia", label: "Portal Transparência" },
+    { href: "/contact-us", label: "Contato" },
   ];
 
   /*
@@ -24,8 +26,8 @@ export function Footer() {
   ];
   */
   const socialLinks = [
-    { href: "https://web.facebook.com/ahbm.maracai", label: "Facebook", icon: "facebook" },
-    { href: "https://www.instagram.com/ahbm.maracai/", label: "Instagram", icon: "instagram" },
+    { href: CONTACT_INFO.facebookLink, label: "Facebook", icon: "facebook" },
+    { href: CONTACT_INFO.instagramLink, label: "Instagram", icon: "instagram" },
   ];
 
   return (
@@ -38,7 +40,7 @@ export function Footer() {
                 <span className="text-xs uppercase tracking-wide text-gray-500">Atendimento</span>
               </p>
               <div>
-                <a href="tel:+551833712797" className="flex items-center text-sm text-gray-700">
+                <Link href={`tel:${CONTACT_INFO.phone}`} className="flex items-center text-sm text-gray-700">
                   <Image
                     src="/svg/phone.svg"
                     alt="telefone"
@@ -46,11 +48,11 @@ export function Footer() {
                     height={25}
                     className="mr-2 inline-block"
                   />
-                  <span>+55 (18) 3371-2797</span>
-                </a>
+                  <span>{CONTACT_INFO.phoneString}</span>
+                </Link>
               </div>
               <div>
-                <a href="mailto:provedoria@ahbm.com.br" className="flex items-center text-sm text-gray-700">
+                <Link href={`tel:${CONTACT_INFO.email}`} className="flex items-center text-sm text-gray-700">
                   <Image
                     src="/svg/mail.svg"
                     alt="email"
@@ -58,10 +60,10 @@ export function Footer() {
                     height={25}
                     className="mr-2 inline-block"
                   />
-                  <span>provedoria@ahbm.com.br</span>
-                </a>
+                  <span>{CONTACT_INFO.email}</span>
+                </Link>
               </div>
-              <Link href="https://maps.app.goo.gl/MH2taJnWe67AhEcF6" rel="noreferrer" target="_blank">
+              <Link href={CONTACT_INFO.address} rel="noreferrer" target="_blank">
                 <Image
                   src="/svg/location.svg"
                   alt="localização"
@@ -69,7 +71,7 @@ export function Footer() {
                   height={25}
                   className="mr-2 inline-block"
                 />
-                <span className="text-sm text-gray-700">Avenida José Bonifácio, 382, Centro - Maracaí/SP </span>
+                <span className="text-sm text-gray-700">{CONTACT_INFO.address}</span>
               </Link>
             </div>
 

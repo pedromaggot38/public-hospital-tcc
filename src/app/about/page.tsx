@@ -3,6 +3,7 @@ import PagesTitles from "@/components/pagesTitles"
 import Features from "@/components/sections/features"
 import ImageGallery from "@/components/sections/imageGallery"
 import LocationMap from "@/components/sections/locationMap"
+import { Separator } from "@/components/ui/separator"
 
 const buttonsData = [
     {
@@ -45,7 +46,9 @@ const About = () => {
                     sectionDescription="Selecione uma opção para saber mais sobre nossos serviços."
                     badge="Navegação"
                 />
+                <Separator className="my-6" />
                 <LocationMap />
+                <Separator className="my-6" />
                 <ImageGallery />
             </div>
         </div>
