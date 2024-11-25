@@ -55,7 +55,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link href="/">
             <div className="flex items-center gap-4">
-              <Image src="/logo.png" alt="Logo"
+              <Image src="/logo.svg" alt="Logo"
                 className="rounded-full"
                 width={80} height={80}
               />
@@ -98,7 +98,7 @@ export function Header() {
                 href="/"
                 onClick={handleSheetLinkClick}
               >
-                <Image src="/logo.png" alt="Logo"
+                <Image src="/logo-sf.svg" alt="Logo"
                   className="rounded-full"
                   width={50} height={50}
                 />
