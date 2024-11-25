@@ -1,11 +1,13 @@
 import { LastArticles } from "@/components/lastArticles";
 import LastArticlesCarousel from "@/components/lastArticlesCarousel";
 import DoctorsSection from "@/components/sections/doctors";
+import PromoSection from "@/components/sections/promo";
 import ServicesSection from "@/components/sections/services";
 
 export default function Home() {
   return (
     <div>
+      <PromoSection />
       <div className="mb-4">
         <LastArticlesCarousel />
       </div>
