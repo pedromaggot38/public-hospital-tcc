@@ -50,7 +50,7 @@ const ContactUsSection = () => {
                     Recebimento de Currículos
                 </h2>
                 <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
-                    Informamos que recebemos currículos exclusivamente através do e-mail <Link href={CONTACT_INFO.email} className="text-blue-500 hover:text-blue-700">{CONTACT_INFO.email}</Link>. Fique à vontade para enviar seu currículo e entraremos em contato caso seu perfil se encaixe nas oportunidades disponíveis.
+                    Informamos que recebemos currículos exclusivamente através do e-mail <Link href={`mailto:${CONTACT_INFO.email}`} className="text-blue-500 hover:text-blue-700">{CONTACT_INFO.email}</Link>. Fique à vontade para enviar seu currículo e entraremos em contato caso seu perfil se encaixe nas oportunidades disponíveis.
                 </p>
                 <div className="flex mt-6 justify-center">
                     <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
