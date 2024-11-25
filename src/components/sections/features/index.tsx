@@ -58,6 +58,7 @@ export default function Features({
                     width={30}
                     height={30}
                     className="stroke-current transition-all duration-500"
+                    style={{ width: "30px", height: "auto" }}
                   />
                 </div>
               </Link>
