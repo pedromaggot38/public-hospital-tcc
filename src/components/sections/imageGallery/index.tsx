@@ -30,7 +30,7 @@ const ImageGallery = () => {
                     Galeria
                 </span>
                 <h2 className="text-4xl text-center font-bold text-gray-900 py-5">
-                    Galeria
+                    Galeria de Fotos
                 </h2>
                 <p className="text-lg font-normal text-gray-500 max-w-md md:max-w-2xl mx-auto">
                     Explore as imagens que refletem a infraestrutura e o ambiente nosso hospital.

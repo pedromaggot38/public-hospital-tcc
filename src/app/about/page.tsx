@@ -1,8 +1,8 @@
 import BreadCrumb from "@/components/breadcrumb"
 import PagesTitles from "@/components/pagesTitles"
 import Features from "@/components/sections/features"
+import { HistoriaHospital } from "@/components/sections/historiaHospital"
 import ImageGallery from "@/components/sections/imageGallery"
-import LocationMap from "@/components/sections/locationMap"
 import { Separator } from "@/components/ui/separator"
 
 const buttonsData = [
@@ -47,7 +47,7 @@ const About = () => {
                     badge="Navegação"
                 />
                 <Separator className="my-6" />
-                <LocationMap />
+                <HistoriaHospital />
                 <Separator className="my-6" />
                 <ImageGallery />
             </div>

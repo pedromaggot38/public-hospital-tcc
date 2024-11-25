@@ -2,6 +2,7 @@ import { CONTACT_INFO } from "@/lib/vars";
 import Features from "../features";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import LocationMap from "../locationMap";
 
 const buttonsData = [
     {
@@ -46,6 +47,8 @@ const ContactUsSection = () => {
                     <div className="w-16 h-1 rounded-full bg-blue-500 inline-flex"></div>
                 </div>
             </div>
+            <Separator className="my-6" />
+            <LocationMap />
         </div>
     );
 };
