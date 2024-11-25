@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import ArticleCard from "../articleCard";
 import { Skeleton } from "../ui/skeleton";
 import { Article } from "@/types/interfaces";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export function LastArticles() {
     const [lastArticlesDB, setLastArticlesDB] = useState<Article[]>([]);
@@ -37,13 +39,18 @@ export function LastArticles() {
 
     return (
         <div className="">
-            <h2 className="text-2xl font-bold">Notícias Recentes</h2>
+            <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold">Notícias Recentes</h2>
+                <Button variant="link">
+                    <Link href="/articles">Ver todas</Link>
+                </Button>
+            </div>
             {isLoading ? (
                 <div className="space-y-2">
-                {Array.from({ length: 3 }).map((_, index) => (
-                    <Skeleton key={index} className="h-60 w-full rounded-lg" />
-                ))}
-            </div>
+                    {Array.from({ length: 3 }).map((_, index) => (
+                        <Skeleton key={index} className="h-60 w-full rounded-lg" />
+                    ))}
+                </div>
             ) : error ? (
                 <p>{error}</p>
             ) : (

@@ -6,6 +6,7 @@ import SwiperCore from 'swiper';
 import Image from 'next/image';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import { Button } from '../ui/button';
 
 SwiperCore.use([Autoplay]);
 
@@ -90,7 +91,12 @@ const LastArticlesCarousel: React.FC = () => {
 
     return (
         <div className='block xl:hidden'>
-            <h2 className="text-2xl font-bold text-gray-800">Notícias recentes</h2>
+            <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold">Notícias Recentes</h2>
+                <Button variant="link">
+                    <Link href="/articles">Ver todas</Link>
+                </Button>
+            </div>
             <div>
                 <Swiper
                     spaceBetween={10}
