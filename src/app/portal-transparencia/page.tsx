@@ -7,8 +7,8 @@ const buttonsData = [
         href: "",
         title: "Despesas",
         icon: "/svg/despesas.svg",
-        bgColor: "bg-emerald-200",
-        hoverColor: "group-hover:bg-emerald-600",
+        bgColor: "bg-teal-200",
+        hoverColor: "group-hover:bg-teal-600",
         description: "Veja como os recursos públicos estão sendo utilizados, detalhados por categoria e período.",
     },
     {
