@@ -46,7 +46,6 @@ npm install
 DATABASE_URL="postgresql://username:password@localhost:5432/mydatabase?schema=public"
 ```
 
-
 ### 3. Configure o Prisma
 ```bash
 npx prisma generate
