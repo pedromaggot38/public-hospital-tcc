@@ -15,12 +15,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
+      <head>
+        <link rel="icon" href="/logo.svg" />
+      </head>
       <body className="antialiased">
-        <div className="xl:px-20 md:px-10 sm:px-2">
+        <div className="bg-blue-500 xl:px-20 md:px-10 sm:px-2">
           <Header />
-          <div className="my-2 sm:my-2 px-2">
-            {children}
-          </div>
+        </div>
+        <div className="xl:px-20 md:px-10 sm:px-2 my-2 sm:my-2 px-2">
+          {children}
         </div>
         <Footer />
       </body>

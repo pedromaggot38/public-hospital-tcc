@@ -1,15 +1,19 @@
-import BreadCrumb from "@/components/breadcrump"
+import BreadCrumb from "@/components/breadcrumb"
 import { DoctorList } from "@/components/doctorList"
+import PagesTitles from "@/components/pagesTitles"
 
 const Doctors = () => {
     return (
         <div>
             <BreadCrumb
                 items={[
-                    { label: 'Médicos', href: '/doctors' },
+                    { label: 'Plantão', href: '/doctors' },
                 ]}
             />
-            <DoctorList />
+            <PagesTitles title="Plantão" />
+            <div className="m-4">
+                <DoctorList />
+            </div>
         </div>
     )
 }

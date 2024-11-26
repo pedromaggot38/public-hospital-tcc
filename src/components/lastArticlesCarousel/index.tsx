@@ -6,6 +6,7 @@ import SwiperCore from 'swiper';
 import Image from 'next/image';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import { Button } from '../ui/button';
 
 SwiperCore.use([Autoplay]);
 
@@ -35,7 +36,7 @@ const LastArticlesCarousel: React.FC = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch('/api/lastArticles');
+                const response = await fetch('/api/lastArticlesCarousel');
                 if (!response.ok) {
                     throw new Error("Failed to fetch last articles");
                 }
@@ -58,7 +59,7 @@ const LastArticlesCarousel: React.FC = () => {
 
     if (isLoading) {
         return (
-            <div className="xl:hidden overflow-y-scroll pt-2 xl:pt-0">
+            <div className="block xl:hidden overflow-y-scroll pt-2 xl:pt-0">
                 <Swiper
                     spaceBetween={10}
                     slidesPerView={1}
@@ -89,8 +90,13 @@ const LastArticlesCarousel: React.FC = () => {
     }
 
     return (
-        <div className='shadow-lg xl:hidden'>
-            <h2 className="text-2xl font-bold text-gray-800">Notícias recentes</h2>
+        <div className='block xl:hidden'>
+            <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold">Notícias Recentes</h2>
+                <Button variant="link">
+                    <Link href="/articles">Ver todas</Link>
+                </Button>
+            </div>
             <div>
                 <Swiper
                     spaceBetween={10}
@@ -114,17 +120,24 @@ const LastArticlesCarousel: React.FC = () => {
                         <SwiperSlide key={article.slug}>
                             <Link href={`/articles/${article.slug}`} className="block relative rounded-lg overflow-hidden">
                                 <div className="relative w-full h-40">
-                                    <Image
-                                        src={article.imageUrl || '/news-placeholder.png'}
-                                        alt={article.title}
-                                        layout="fill"
-                                        objectFit="cover"
-                                        objectPosition="center"
-                                        className="rounded-lg"
-                                    />
+                                    <div className="relative w-full h-64">
+                                        <Image
+                                            src={article.imageUrl || '/news-placeholder.png'}
+                                            alt={article.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'bottom'
+                                            }}
+                                            className="rounded-lg"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="absolute inset-0 flex flex-col justify-end p-4 bg-black bg-opacity-45 text-white">
-                                    <p className="absolute top-2 left-2 bg-gray-900 bg-opacity-75 text-white text-xs rounded px-2 py-1">{new Date(article.createdAt).toLocaleDateString()}</p>
+                                    <p className="absolute top-2 left-2 bg-gray-900 bg-opacity-75 text-white text-xs rounded px-2 py-1">
+                                        {new Date(article.createdAt).toLocaleDateString('pt-BR', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                    </p>
                                     <h2 className="text-lg font-semibold text-gray-100 line-clamp-2">{article.title}</h2>
                                     <p className="text-sm mt-1 text-gray-100 line-clamp-2">{article.subtitle}</p>
                                 </div>
@@ -134,7 +147,6 @@ const LastArticlesCarousel: React.FC = () => {
                 </Swiper>
             </div>
         </div>
-
     );
 };
 

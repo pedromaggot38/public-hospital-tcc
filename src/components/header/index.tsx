@@ -8,7 +8,6 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { Separator } from "../ui/separator";
 
-
 const menuItems = [
   {
     title: "Início",
@@ -26,11 +25,22 @@ const menuItems = [
     accessibility: "Notícias",
   },
   {
-    title: "Médicos",
+    title: "Plantão",
     path: "/doctors",
     accessibility: "Médicos",
   },
+  {
+    title: "Contato",
+    path: "/contact-us",
+    accessibility: "Contato",
+  },
+  {
+    title: "Portal Transparência",
+    path: "/portal-transparencia",
+    accessibility: "Portal da Transparência",
+  },
 ];
+
 
 export function Header() {
   const [isSheetOpen, setSheetIsOpen] = useState(false);
@@ -44,21 +54,14 @@ export function Header() {
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-4">
           <Link href="/">
-            <Image src="/logo.jpg" alt="Logo"
-              className="rounded-full"
-              width={60} height={60}
-            />
+            <div className="flex items-center gap-4">
+              <Image src="/logo.svg" alt="Logo"
+                className="rounded-full"
+                width={80} height={80}
+              />
+              <span className="font-bold text-white">Hospital Maracaí</span>
+            </div>
           </Link>
-          <span className="font-bold text-primary">Hospital Maracaí</span>
-          {/*
-            <Image
-            src="/logo.svg"
-            alt="Logo"
-            width={180} // Largura fixa
-            height={100} // Altura fixa (ajuste conforme necessário para manter a proporção)
-            style={{ objectFit: 'contain' }} // Ajusta a imagem para caber no espaço sem distorção
-          />
-          */}
         </div>
         <ul className="lg:flex gap-6 hidden items-center">
           <Separator orientation="vertical" className="h-10" />
@@ -66,7 +69,7 @@ export function Header() {
             <Link
               key={item.title}
               href={item.path}
-              className="font-bold text-muted-foreground hover:text-blue-700 cursor-pointer hover:scale-105 transition-all ease-in-out"
+              className="font-bold text-muted-foreground text-white hover:text-[#16294d] cursor-pointer hover:scale-105 transition-all ease-in-out"
             >
               <span>{item.title}</span>
               <span className="sr-only">, {item.accessibility}</span>
@@ -95,7 +98,7 @@ export function Header() {
                 href="/"
                 onClick={handleSheetLinkClick}
               >
-                <Image src="/logo.jpg" alt="Logo"
+                <Image src="/logo-sf.svg" alt="Logo"
                   className="rounded-full"
                   width={50} height={50}
                 />
