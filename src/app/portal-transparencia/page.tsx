@@ -1,10 +1,11 @@
 import BreadCrumb from "@/components/breadcrumb"
 import PagesTitles from "@/components/pagesTitles"
 import Features from "@/components/sections/features"
+import { CONTACT_INFO } from "@/lib/vars";
 
 const buttonsData = [
     {
-        href: "/despesas.pdf",
+        href: `${CONTACT_INFO.despesasLink}`,
         title: "Despesas",
         icon: "/svg/despesas.svg",
         bgColor: "bg-teal-200",
@@ -12,7 +13,7 @@ const buttonsData = [
         description: "Veja como os recursos públicos estão sendo utilizados, detalhados por categoria e período.",
     },
     {
-        href: "/receitas.pdf",
+        href: `${CONTACT_INFO.receitasLink}`,
         title: "Receitas",
         icon: "/svg/receitas.svg",
         bgColor: "bg-violet-200",
@@ -20,7 +21,7 @@ const buttonsData = [
         description: "Consulte as receitas obtidas por nossa instituição, incluindo fontes e valores arrecadados.",
     },
     {
-        href: "https://drive.google.com/drive/folders/1vDvU6ovGcCwDaUEZA9vpsiniYG7A-Vsi?usp=sharing",
+        href: `${CONTACT_INFO.contratosLink}`,
         title: "Licitações e Contratos",
         icon: "/svg/contratos.svg",
         bgColor: "bg-orange-200",

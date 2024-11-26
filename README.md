@@ -61,3 +61,37 @@ npm run dev
 
 ### 5. Acesse o site no navegador
 Abra o navegador e digite http://localhost:3000 para visualizar o projeto.
+
+## Facilitação de Alterações de Dados Institucionais
+
+Este projeto foi desenvolvido com foco na facilidade de manutenção e personalização das informações institucionais exibidas no site. Para isso, foi criado o arquivo `vars.ts`, que centraliza todas as informações de contato e links relevantes da instituição. 
+
+### Estrutura do Arquivo `vars.ts`
+
+O arquivo contém constantes organizadas de forma clara, permitindo a rápida alteração de informações como telefone, endereço e links para redes sociais, mapas e documentos. A estrutura inclui:
+
+- **Variáveis de Contato**:
+  - `phone`: número de telefone formatado para links de discagem direta.
+  - `phoneString`: versão visual do número de telefone para exibição no site.
+  - `email`: e-mail institucional para contato.
+  - `cep` e `address`: informações completas de endereço.
+
+- **Variáveis de Links**:
+  - `mapsLink`: link direto para o endereço da instituição no Google Maps.
+  - `embedMapsLink`: link para a integração do mapa no site.
+  - Links para redes sociais como Instagram e Facebook.
+  - Links para documentos institucionais como despesas, receitas e contratos.
+
+### Benefícios
+
+1. **Centralização das Informações**: Todas as informações institucionais estão concentradas em um único local, eliminando a necessidade de busca manual em várias partes do código.
+   
+2. **Facilidade de Atualização**: Qualquer alteração nos dados institucionais, como um novo número de telefone ou atualização de links, pode ser feita diretamente no arquivo `vars.ts`. Essa modificação é automaticamente refletida em todas as páginas do site.
+
+3. **Manutenção Simples**: A estrutura padronizada permite que desenvolvedores ou gestores de conteúdo não precisem acessar outras partes do código, reduzindo riscos de inconsistências.
+
+### Exemplo de Uso
+
+Quando o número de telefone ou endereço da instituição mudar, basta atualizar os valores no arquivo `vars.ts`, e o site será ajustado automaticamente, mantendo a consistência e economia de tempo na gestão do projeto.
+
+Essa abordagem proporciona uma solução escalável e eficiente para a manutenção de dados dinâmicos, garantindo que o site esteja sempre atualizado com informações precisas.
