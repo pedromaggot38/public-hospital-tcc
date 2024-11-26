@@ -41,14 +41,15 @@ pnpm install
 npm install
 ```
 
-### 2. Configure o Prisma
-```bash
-npx prisma generate
-```
-
-### 3. Configure as Variáveis de Ambiente
+### 2. Configure as Variáveis de Ambiente
 ```bash
 DATABASE_URL="postgresql://username:password@localhost:5432/mydatabase?schema=public"
+```
+
+
+### 3. Configure o Prisma
+```bash
+npx prisma generate
 ```
 
 ### 4. Inicie o servidor de desenvolvimento
