@@ -1,32 +1,60 @@
 'use client'
 
-import { Article } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import ArticleCard from "../articleListCard";
-import { useMediaQuery } from 'react-responsive'
 import { ArticlesPagination } from "../articlesPagination";
+import { Article } from "@/types/interfaces";
 
 export function ArticleList() {
     const [articles, setArticles] = useState<Article[]>([]);
-    const [totalArticles, setTotalArticles] = useState<number>(0);
+    const [totalArticles, setTotalArticles] = useState(0);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 640 });
-    const isMediumScreen = useMediaQuery({ minWidth: 641, maxWidth: 1024 });
+    const [windowWidth, setWindowWidth] = useState(
+        typeof window !== "undefined" ? window.innerWidth : 1200
+    );
+    const [itemsPerPage, setItemsPerPage] = useState(16);
+    const [columns, setColumns] = useState(4);
 
-    const itemsPerPage = isSmallScreen ? 6 : isMediumScreen ? 6 : 9;
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
 
-    const lastItemIndex = currentPage * itemsPerPage;
-    const firstItemIndex = lastItemIndex - itemsPerPage;
-    const currentItems = articles.slice(firstItemIndex, lastItemIndex);
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        if (windowWidth <= 640) {
+            setItemsPerPage(4);
+            setColumns(1);
+        } else if (windowWidth <= 800) {
+            setItemsPerPage(6);
+            setColumns(2);
+        } else if (windowWidth <= 1280) {
+            setItemsPerPage(9);
+            setColumns(3);
+        } else {
+            setItemsPerPage(16);
+            setColumns(4);
+        }
+    }, [windowWidth]);
 
     useEffect(() => {
         const fetchArticles = async () => {
+            setIsLoading(true);
+            setError(null);
+
             try {
-                const response = await fetch('/api/articles');
+                const response = await fetch(
+                    `/api/articles?page=${currentPage}&limit=${itemsPerPage}`
+                );
                 if (!response.ok) {
                     throw new Error("Failed to fetch articles");
                 }
@@ -38,21 +66,31 @@ export function ArticleList() {
                 } else {
                     throw new Error("Formato de dados inválido");
                 }
-            } catch (error) {
-                console.error("Failed to fetch articles:", error);
+            } catch (err) {
+                console.error("Failed to fetch articles:", err);
                 setError("Ocorreu um erro ao buscar os artigos.");
             } finally {
                 setIsLoading(false);
             }
         };
+
         fetchArticles();
-    }, []);
+    }, [currentPage, itemsPerPage]);
+
+    const columnsClass =
+        columns === 1
+            ? "grid-cols-1"
+            : columns === 2
+                ? "grid-cols-2"
+                : columns === 3
+                    ? "grid-cols-3"
+                    : "grid-cols-4";
 
     return (
         <div>
             {isLoading ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 space-y-3">
-                    {Array.from({ length: 20 }).map((_, index) => (
+                <div className={`grid ${columnsClass} gap-6 auto-rows-fr`}>
+                    {Array.from({ length: itemsPerPage }).map((_, index) => (
                         <div key={index} className="flex flex-col space-y-3">
                             <Skeleton className="h-[125px] w-full rounded-xl" />
                             <div className="space-y-2">
@@ -66,13 +104,13 @@ export function ArticleList() {
                 <p>{error}</p>
             ) : (
                 <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {currentItems.map((article) => (
+                    <div className={`grid ${columnsClass} gap-6`}>
+                        {articles.map((article) => (
                             <ArticleCard
                                 key={article.slug}
                                 title={article.title}
                                 subtitle={article.subtitle}
-                                imageUrl={article.imageUrl || '/news-placeholder.png'}
+                                imageUrl={article.imageUrl || "/news-placeholder.png"}
                                 createdAt={new Date(article.createdAt).toISOString()}
                                 slug={article.slug}
                             />

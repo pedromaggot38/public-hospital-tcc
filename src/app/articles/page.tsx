@@ -2,6 +2,8 @@ import { ArticleList } from "@/components/articleList"
 import BreadCrumb from "@/components/breadcrumb"
 import PagesTitles from "@/components/pagesTitles"
 
+export const dynamic = 'force-dynamic';
+
 const Articles = () => {
     return (
         <div>
