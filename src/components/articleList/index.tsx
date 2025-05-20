@@ -1,15 +1,15 @@
 'use client'
 
-import { Article } from "@/types/interfaces";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import ArticleCard from "../articleListCard";
 import { useMediaQuery } from 'react-responsive'
 import { ArticlesPagination } from "../articlesPagination";
+import { Article } from "@/types/interfaces";
 
 export function ArticleList() {
     const [articles, setArticles] = useState<Article[]>([]);
-    const [totalArticles, setTotalArticles] = useState<number>(0);
+    const [totalArticles, setTotalArticles] = useState(0);
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
@@ -19,14 +19,13 @@ export function ArticleList() {
 
     const itemsPerPage = isSmallScreen ? 6 : isMediumScreen ? 6 : 9;
 
-    const lastItemIndex = currentPage * itemsPerPage;
-    const firstItemIndex = lastItemIndex - itemsPerPage;
-    const currentItems = articles.slice(firstItemIndex, lastItemIndex);
-
     useEffect(() => {
         const fetchArticles = async () => {
+            setIsLoading(true);
+            setError(null);
+
             try {
-                const response = await fetch('/api/articles');
+                const response = await fetch(`/api/articles?page=${currentPage}&limit=${itemsPerPage}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch articles");
                 }
@@ -38,21 +37,22 @@ export function ArticleList() {
                 } else {
                     throw new Error("Formato de dados inválido");
                 }
-            } catch (error) {
-                console.error("Failed to fetch articles:", error);
+            } catch (err) {
+                console.error("Failed to fetch articles:", err);
                 setError("Ocorreu um erro ao buscar os artigos.");
             } finally {
                 setIsLoading(false);
             }
         };
+
         fetchArticles();
-    }, []);
+    }, [currentPage, itemsPerPage]); // refaz a chamada ao mudar página ou itens por página
 
     return (
         <div>
             {isLoading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 space-y-3">
-                    {Array.from({ length: 20 }).map((_, index) => (
+                    {Array.from({ length: itemsPerPage }).map((_, index) => (
                         <div key={index} className="flex flex-col space-y-3">
                             <Skeleton className="h-[125px] w-full rounded-xl" />
                             <div className="space-y-2">
@@ -67,7 +67,7 @@ export function ArticleList() {
             ) : (
                 <div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {currentItems.map((article) => (
+                        {articles.map((article) => (
                             <ArticleCard
                                 key={article.slug}
                                 title={article.title}

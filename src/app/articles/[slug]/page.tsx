@@ -1,4 +1,3 @@
-import { db } from '@/lib/db';
 import { NextPage } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -7,17 +6,14 @@ import { ptBR } from 'date-fns/locale';
 import { LastArticles } from '@/components/lastArticles';
 import BreadCrumb from '@/components/breadcrumb';
 import LastArticlesCarousel from '@/components/lastArticlesCarousel';
+import { getArticleAndLastArticles } from '@/lib/articles';
 
 interface Params {
   slug: string;
 }
 
 const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
-  const article = await db.article.findFirst({
-    where: {
-      slug: params.slug,
-    },
-  });
+  const { article, lastArticles } = await getArticleAndLastArticles(params.slug);
 
   if (!article) {
     return notFound();
@@ -38,7 +34,7 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
         ]}
       />
 
-      <div className='flex gap-6'>
+      <div className="flex gap-6">
         <div className="w-[100%] mx-auto p-2">
           {article.imageUrl && (
             <div className="relative w-full h-60 overflow-hidden rounded-t-lg">
@@ -65,11 +61,11 @@ const ArticlePage: NextPage<{ params: Params }> = async ({ params }) => {
           </div>
         </div>
         <div className="hidden w-[20%] xl:block">
-          <LastArticles />
+          <LastArticles articles={lastArticles} />
         </div>
       </div>
       <div className="p-2 xl:hidden">
-        <LastArticlesCarousel />
+        <LastArticlesCarousel articles={lastArticles} />
       </div>
     </div>
   );
