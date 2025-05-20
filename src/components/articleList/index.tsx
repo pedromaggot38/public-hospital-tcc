@@ -77,7 +77,14 @@ export function ArticleList() {
         fetchArticles();
     }, [currentPage, itemsPerPage]);
 
-    const columnsClass = `grid-cols-${columns}`;
+    const columnsClass =
+        columns === 1
+            ? "grid-cols-1"
+            : columns === 2
+                ? "grid-cols-2"
+                : columns === 3
+                    ? "grid-cols-3"
+                    : "grid-cols-4";
 
     return (
         <div>
