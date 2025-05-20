@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import ArticleCard from "../articleListCard";
-import { useMediaQuery } from 'react-responsive'
 import { ArticlesPagination } from "../articlesPagination";
 import { Article } from "@/types/interfaces";
 
@@ -14,10 +13,38 @@ export function ArticleList() {
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 640 });
-    const isMediumScreen = useMediaQuery({ minWidth: 641, maxWidth: 1024 });
+    const [windowWidth, setWindowWidth] = useState(
+        typeof window !== "undefined" ? window.innerWidth : 1200
+    );
+    const [itemsPerPage, setItemsPerPage] = useState(16);
+    const [columns, setColumns] = useState(4);
 
-    const itemsPerPage = isSmallScreen ? 6 : isMediumScreen ? 6 : 9;
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        if (windowWidth <= 640) {
+            setItemsPerPage(4);
+            setColumns(1);
+        } else if (windowWidth <= 800) {
+            setItemsPerPage(6);
+            setColumns(2);
+        } else if (windowWidth <= 1280) {
+            setItemsPerPage(9);
+            setColumns(3);
+        } else {
+            setItemsPerPage(16);
+            setColumns(4);
+        }
+    }, [windowWidth]);
 
     useEffect(() => {
         const fetchArticles = async () => {
@@ -25,7 +52,9 @@ export function ArticleList() {
             setError(null);
 
             try {
-                const response = await fetch(`/api/articles?page=${currentPage}&limit=${itemsPerPage}`);
+                const response = await fetch(
+                    `/api/articles?page=${currentPage}&limit=${itemsPerPage}`
+                );
                 if (!response.ok) {
                     throw new Error("Failed to fetch articles");
                 }
@@ -46,12 +75,14 @@ export function ArticleList() {
         };
 
         fetchArticles();
-    }, [currentPage, itemsPerPage]); // refaz a chamada ao mudar página ou itens por página
+    }, [currentPage, itemsPerPage]);
+
+    const columnsClass = `grid-cols-${columns}`;
 
     return (
         <div>
             {isLoading ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 space-y-3">
+                <div className={`grid ${columnsClass} gap-6 auto-rows-fr`}>
                     {Array.from({ length: itemsPerPage }).map((_, index) => (
                         <div key={index} className="flex flex-col space-y-3">
                             <Skeleton className="h-[125px] w-full rounded-xl" />
@@ -66,13 +97,13 @@ export function ArticleList() {
                 <p>{error}</p>
             ) : (
                 <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className={`grid ${columnsClass} gap-6`}>
                         {articles.map((article) => (
                             <ArticleCard
                                 key={article.slug}
                                 title={article.title}
                                 subtitle={article.subtitle}
-                                imageUrl={article.imageUrl || '/news-placeholder.png'}
+                                imageUrl={article.imageUrl || "/news-placeholder.png"}
                                 createdAt={new Date(article.createdAt).toISOString()}
                                 slug={article.slug}
                             />
